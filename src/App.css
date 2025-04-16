@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+:root {
+  --code-visualstudio-com-segoe-UI-light-font-family: "Segoe UI", Helvetica;
+  --code-visualstudio-com-segoe-UI-light-font-size: 24px;
+  --code-visualstudio-com-segoe-UI-light-font-style: normal;
+  --code-visualstudio-com-segoe-UI-light-font-weight: 300;
+  --code-visualstudio-com-segoe-UI-light-letter-spacing: 0px;
+  --code-visualstudio-com-segoe-UI-light-line-height: 21px;
+  --code-visualstudio-com-segoe-UI-regular-font-family: "Segoe UI", Helvetica;
+  --code-visualstudio-com-segoe-UI-regular-font-size: 13.5625px;
+  --code-visualstudio-com-segoe-UI-regular-font-style: normal;
+  --code-visualstudio-com-segoe-UI-regular-font-weight: 400;
+  --code-visualstudio-com-segoe-UI-regular-letter-spacing: 0px;
+  --code-visualstudio-com-segoe-UI-regular-line-height: 22.399999618530273px;
+  --code-visualstudio-com-semantic-button-font-family: "Segoe UI", Helvetica;
+  --code-visualstudio-com-semantic-button-font-size: 20px;
+  --code-visualstudio-com-semantic-button-font-style: normal;
+  --code-visualstudio-com-semantic-button-font-weight: 400;
+  --code-visualstudio-com-semantic-button-letter-spacing: 0px;
+  --code-visualstudio-com-semantic-button-line-height: 28.56999969482422px;
+  --code-visualstudio-com-semantic-code-font-family: "Courier New", Helvetica;
+  --code-visualstudio-com-semantic-code-font-size: 16px;
+  --code-visualstudio-com-semantic-code-font-style: normal;
+  --code-visualstudio-com-semantic-code-font-weight: 400;
+  --code-visualstudio-com-semantic-code-letter-spacing: 0px;
+  --code-visualstudio-com-semantic-code-line-height: 16px;
+  --code-visualstudio-com-semantic-heading-1-font-family: "Segoe UI", Helvetica;
+  --code-visualstudio-com-semantic-heading-1-font-size: 71.4375px;
+  --code-visualstudio-com-semantic-heading-1-font-style: normal;
+  --code-visualstudio-com-semantic-heading-1-font-weight: 700;
+  --code-visualstudio-com-semantic-heading-1-letter-spacing: -0.800000011920929px;
+  --code-visualstudio-com-semantic-heading-1-line-height: 86.4000015258789px;
+  --code-visualstudio-com-semantic-heading-2-font-family: "Segoe UI", Helvetica;
+  --code-visualstudio-com-semantic-heading-2-font-size: 29.6484375px;
+  --code-visualstudio-com-semantic-heading-2-font-style: normal;
+  --code-visualstudio-com-semantic-heading-2-font-weight: 700;
+  --code-visualstudio-com-semantic-heading-2-letter-spacing: -0.5px;
+  --code-visualstudio-com-semantic-heading-2-line-height: 45px;
+  --code-visualstudio-com-semantic-heading-3-font-family: "Segoe UI", Helvetica;
+  --code-visualstudio-com-semantic-heading-3-font-size: 15.875px;
+  --code-visualstudio-com-semantic-heading-3-font-style: normal;
+  --code-visualstudio-com-semantic-heading-3-font-weight: 700;
+  --code-visualstudio-com-semantic-heading-3-letter-spacing: 0px;
+  --code-visualstudio-com-semantic-heading-3-line-height: 25.600000381469727px;
+  --code-visualstudio-com-semantic-input-font-family: "Segoe UI", Helvetica;
+  --code-visualstudio-com-semantic-input-font-size: 14px;
+  --code-visualstudio-com-semantic-input-font-style: normal;
+  --code-visualstudio-com-semantic-input-font-weight: 400;
+  --code-visualstudio-com-semantic-input-letter-spacing: 0px;
+  --code-visualstudio-com-semantic-input-line-height: normal;
+  --code-visualstudio-com-semantic-link-font-family: "Segoe UI", Helvetica;
+  --code-visualstudio-com-semantic-link-font-size: 15.875px;
+  --code-visualstudio-com-semantic-link-font-style: normal;
+  --code-visualstudio-com-semantic-link-font-weight: 700;
+  --code-visualstudio-com-semantic-link-letter-spacing: 0px;
+  --code-visualstudio-com-semantic-link-line-height: 16px;
+  --code-visualstudio-com-semantic-link-underline-font-family: "Segoe UI",
+    Helvetica;
+  --code-visualstudio-com-semantic-link-underline-font-size: 14px;
+  --code-visualstudio-com-semantic-link-underline-font-style: normal;
+  --code-visualstudio-com-semantic-link-underline-font-weight: 400;
+  --code-visualstudio-com-semantic-link-underline-letter-spacing: 0px;
+  --code-visualstudio-com-semantic-link-underline-line-height: 22.399999618530273px;
 }
