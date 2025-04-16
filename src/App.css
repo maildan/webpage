@@ -1,3 +1,5 @@
+/* Visual Studio Code 웹사이트 스타일 - 텍스트 스타일과 변수 */
+
 :root {
   --code-visualstudio-com-segoe-UI-light-font-family: "Segoe UI", Helvetica;
   --code-visualstudio-com-segoe-UI-light-font-size: 24px;
@@ -60,4 +62,430 @@
   --code-visualstudio-com-semantic-link-underline-font-weight: 400;
   --code-visualstudio-com-semantic-link-underline-letter-spacing: 0px;
   --code-visualstudio-com-semantic-link-underline-line-height: 22.399999618530273px;
+}
+
+/* 텍스트 스타일 */
+.text {
+	color: #333333;
+	font-size: 16px;
+	margin-left: 11px;
+	margin-right: 11px;
+}
+
+.text2 {
+	color: #333333;
+	font-size: 16px;
+	margin-left: 11px;
+	margin-right: 12px;
+}
+
+.text3 {
+	color: #333333;
+	font-size: 16px;
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+.text4 {
+	color: #333333;
+	font-size: 15px;
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+.text5 {
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.text6 {
+	color: #475569;
+	font-size: 14px;
+	margin-right: 5px;
+}
+
+.text7 {
+	color: #005FB8;
+	font-size: 14px;
+	margin-right: 4px;
+}
+
+.text8 {
+	color: #475569;
+	font-size: 13px;
+	text-align: center;
+	flex: 1;
+}
+
+.text9 {
+	color: #333333;
+	font-size: 24px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.text10 {
+	color: #242424;
+	font-size: 71px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 24px;
+	margin-left: 356px;
+	width: 597px;
+}
+
+.text11 {
+	color: #FFFFFF;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.text12 {
+	color: #333333;
+	font-size: 18px;
+}
+
+.text13 {
+	color: #005FB8;
+	font-size: 12px;
+}
+
+.text14 {
+	color: #475569;
+	font-size: 12px;
+	margin-right: 4px;
+}
+
+.text15 {
+	color: #005FB8;
+	font-size: 11px;
+	margin-right: 1px;
+}
+
+.text16 {
+	color: #005FB8;
+	font-size: 11px;
+}
+
+.text17 {
+	color: #333333;
+	font-size: 20px;
+	margin: 8px 22px;
+}
+
+.text18 {
+	color: #242424;
+	font-size: 19px;
+	font-weight: bold;
+	margin-bottom: 9px;
+	margin-left: 17px;
+}
+
+.text19 {
+	color: #475569;
+	font-size: 16px;
+	margin-bottom: 9px;
+	margin-left: 17px;
+	width: 313px;
+}
+
+.text20 {
+	color: #242424;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 9px;
+	margin-left: 16px;
+}
+
+.text21 {
+	color: #475569;
+	font-size: 16px;
+	margin-bottom: 9px;
+	margin-left: 16px;
+	margin-right: 16px;
+}
+
+.text22 {
+	color: #242424;
+	font-size: 19px;
+	font-weight: bold;
+	margin-bottom: 15px;
+	margin-left: 17px;
+	margin-right: 63px;
+	width: 288px;
+}
+
+.text23 {
+	color: #475569;
+	font-size: 15px;
+	margin-bottom: 15px;
+	margin-left: 17px;
+	width: 318px;
+}
+
+.text24 {
+	color: #242424;
+	font-size: 29px;
+	font-weight: bold;
+	margin-bottom: 9px;
+}
+
+.text25 {
+	color: #475569;
+	font-size: 16px;
+	margin-bottom: 7px;
+}
+
+.text26 {
+	color: #005FB8;
+	font-size: 15px;
+}
+
+.text27 {
+	color: #242424;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 9px;
+}
+
+.text28 {
+	color: #475569;
+	font-size: 16px;
+	margin-bottom: 8px;
+}
+
+.text29 {
+	color: #242424;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 16px;
+	margin-left: 40px;
+}
+
+.text30 {
+	color: #475569;
+	font-size: 15px;
+	width: 348px;
+}
+
+.text31 {
+	color: #005FB8;
+	font-size: 16px;
+}
+
+.text32 {
+	color: #475569;
+	font-size: 16px;
+	margin-left: 73px;
+}
+
+.text33 {
+	color: #333333;
+	font-size: 13px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-right: 4px;
+}
+
+.text34 {
+	color: #005FB8;
+	font-size: 13px;
+}
+
+.text35 {
+	color: #475569;
+	font-size: 16px;
+}
+
+.text36 {
+	color: #333333;
+	font-size: 16px;
+	margin-bottom: 32px;
+}
+
+.text37 {
+	color: #333333;
+	font-size: 16px;
+}
+
+.text38 {
+	color: #242424;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 9px;
+	margin-left: 40px;
+}
+
+.text39 {
+	color: #475569;
+	font-size: 16px;
+	margin-bottom: 38px;
+	margin-left: 40px;
+	width: 338px;
+}
+
+.text40 {
+	color: #475569;
+	font-size: 15px;
+	margin-left: 95px;
+}
+
+.text41 {
+	color: #475569;
+	font-size: 16px;
+	width: 348px;
+}
+
+.text42 {
+	color: #475569;
+	font-size: 16px;
+	margin-left: 97px;
+}
+
+.text43 {
+	color: #475569;
+	font-size: 16px;
+	width: 333px;
+}
+
+.text44 {
+	color: #475569;
+	font-size: 16px;
+	margin-left: 53px;
+}
+
+.text45 {
+	color: #475569;
+	font-size: 15px;
+	width: 336px;
+}
+
+.text46 {
+	color: #475569;
+	font-size: 15px;
+	margin-bottom: 38px;
+	margin-left: 40px;
+	margin-right: 40px;
+	width: 355px;
+}
+
+.text47 {
+	color: #475569;
+	font-size: 15px;
+	margin-left: 160px;
+}
+
+.text48 {
+	color: #475569;
+	font-size: 15px;
+	width: 347px;
+}
+
+.text49 {
+	color: #475569;
+	font-size: 15px;
+	margin-left: 143px;
+}
+
+.text50 {
+	color: #475569;
+	font-size: 15px;
+	width: 329px;
+}
+
+.text51 {
+	color: #242424;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 11px;
+}
+
+.text52 {
+	color: #475569;
+	font-size: 15px;
+	text-align: center;
+}
+
+.text53 {
+	color: #242424;
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 8px;
+	margin-left: 25px;
+}
+
+.text54 {
+	color: #475569;
+	font-size: 14px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+.text55 {
+	color: #242424;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 8px;
+	margin-left: 25px;
+}
+
+.text56 {
+	color: #475569;
+	font-size: 13px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+.text57 {
+	color: #475569;
+	font-size: 11px;
+	margin-right: 23px;
+}
+
+.text58 {
+	color: #475569;
+	font-size: 12px;
+	margin-right: 26px;
+}
+
+.text59 {
+	color: #475569;
+	font-size: 12px;
+	margin-right: 25px;
+}
+
+.text60 {
+	color: #475569;
+	font-size: 12px;
+}
+
+.view {
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: #FFFFFF;
+}
+
+.view2 {
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.view3 {
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.view4 {
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
