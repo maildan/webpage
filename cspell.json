@@ -1,0 +1,16 @@
+{
+    "version": "0.2",
+    "language": "en,ko",
+    "words": [
+      "Ollama",
+      "npwsh",
+      "Kwon",
+    ],
+    "ignorePaths": [
+      "node_modules/**",
+      ".git/**",
+      ".next/**",
+      "dist/**"
+    ]
+  }
+  

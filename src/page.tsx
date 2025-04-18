@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import "./index.css";
 import "./App.css";
 
@@ -6,172 +6,238 @@ export interface ElementLightProps {
   // 필요한 경우 props 타입 정의
 }
 
-export const ElementLight: React.FC<ElementLightProps> = () => {
+// 헤더 컴포넌트 분리
+const Header = React.memo(() => {
   const [input1, setInput1] = useState<string>("");
 
+  const handleInputChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setInput1(event.target.value);
+  }, []);
+
+  const handleDownloadClick = useCallback(() => {
+    alert("Pressed!");
+  }, []);
+
+  return (
+    <div className="row-view">
+      <div className="row-view2">
+        <span className="text">{"Docs"}</span>
+        <span className="text2">{"Updates"}</span>
+        <div className="column">
+          <div className="view2">
+            <span className="text3">{"FAQ"}</span>
+          </div>
+        </div>
+        <span className="text4">{"GitHub Copilot"}</span>
+      </div>
+      <img
+        src={
+          "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/embfm61j_expires_30_days.png"
+        }
+        className="image"
+        alt="Theme"
+        loading="lazy"
+      />
+      <div className="row-view3">
+        <img
+          src={
+            "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/77qe7xx5_expires_30_days.png"
+          }
+          className="image2"
+          alt="Search icon"
+          loading="lazy"
+        />
+        <input
+          placeholder={"Search Docs"}
+          value={input1}
+          onChange={handleInputChange}
+          className="input"
+        />
+      </div>
+      <button
+        className="button"
+        onClick={handleDownloadClick}
+      >
+        <span className="text5">{"Download"}</span>
+      </button>
+    </div>
+  );
+});
+
+Header.displayName = 'Header';
+
+// 알림 배너 컴포넌트 분리
+const AlertBanner = React.memo(() => (
+  <div className="row-view4">
+  </div>
+));
+
+AlertBanner.displayName = 'AlertBanner';
+
+// 메인 히어로 섹션 컴포넌트 분리
+const HeroSection = React.memo(() => {
+  const handleDownloadClick = useCallback(() => {
+    alert("Pressed!");
+  }, []);
+
+  const handleProClick = useCallback(() => {
+    alert("Pressed!");
+  }, []);
+
+  return (
+    <div className="column2">
+      <span className="text10">
+        {"모든 채팅을 한곳에.\nLoop"}
+      </span>
+      <div className="view3">
+        <div className="column3">
+          <div className="row-view5">
+            <button
+              className="button2"
+              onClick={handleDownloadClick}
+            >
+              <span className="text11">{"Download for Windows"}</span>
+            </button>
+            <button
+              className="button3"
+              onClick={handleProClick}
+            >
+              <span className="text12">{"무제한으로 Pro 사용하기"}</span>
+            </button>
+          </div>
+          <div className="row-view6">
+            <span className="text13">{"Web"}</span>
+            <span className="text14">{","}</span>
+            <span className="text15">{"Insiders edition"}</span>
+            <span className="text14">{", or"}</span>
+            <span className="text16">{"other platforms"}</span>
+          </div>
+        </div>
+      </div>
+      <img
+        src={
+          "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/tu9c73jo_expires_30_days.png"
+        }
+        className="image3"
+        alt="Editor preview"
+        loading="lazy"
+      />
+      <div className="view4">
+        <span className="text17">{"Pause"}</span>
+      </div>
+    </div>
+  );
+});
+
+HeroSection.displayName = 'HeroSection';
+
+// 기능 카드 컴포넌트 분리
+const FeatureCard = React.memo(({ 
+  title, 
+  description, 
+  imageSrc, 
+  imageAlt,
+  onClick,
+  className
+}: {
+  title: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+  onClick?: () => void;
+  className?: string;
+}) => (
+  <button
+    className={className}
+    onClick={onClick}
+  >
+    <span className="text18">{title}</span>
+    <span className="text19">{description}</span>
+    <img
+      src={imageSrc}
+      className="image4"
+      alt={imageAlt}
+      loading="lazy"
+    />
+  </button>
+));
+
+FeatureCard.displayName = 'FeatureCard';
+
+// 세 개의 기능 카드 섹션 컴포넌트 분리
+const FeatureSection = React.memo(() => {
+  const handleCardClick = useCallback(() => {
+    alert("Pressed!");
+  }, []);
+
+  return (
+    <div className="row-view7">
+      <FeatureCard
+        title="모든 로그를 하나로 보세요."
+        description="Use AI models like Claude Sonnet out of the\nbox, or bring your own key to access models\nfrom Azure, Anthropic, Google, Ollama,\nOpenAI, and OpenRouter."
+        imageSrc="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/jlgkh508_expires_30_days.png"
+        imageAlt="AI models"
+        onClick={handleCardClick}
+        className="button-column"
+      />
+      <div className="column4">
+        <span className="text20">{"로그에서 신속하게 다른 앱으로."}</span>
+        <span className="text21">
+          {
+            "Your codebase is indexed locally and remotely (on\nGitHub) to understand what's relevant, enabling\nfast, context-aware interactions."
+          }
+        </span>
+        <img
+          src={
+            "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/1mrgcw8t_expires_30_days.png"
+          }
+          className="image5"
+          alt="Codebase expert"
+          loading="lazy"
+        />
+      </div>
+      <FeatureCard
+        title="AI 를 사용하여 일상을 향상시키세요."
+        description="Personalize interactions using custom\ninstructions and reusable prompt files tailored\nto your workflows, tools, and projects."
+        imageSrc="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/3b9g6uic_expires_30_days.png"
+        imageAlt="Team workflow"
+        onClick={handleCardClick}
+        className="button-column2"
+      />
+    </div>
+  );
+});
+
+FeatureSection.displayName = 'FeatureSection';
+
+// 메인 컴포넌트
+export const ElementLight: React.FC<ElementLightProps> = () => {
   return (
     <div className="contain">
       <div className="scroll-view">
         <div className="view">
-          <div className="row-view">
-            <div className="row-view2">
-              <span className="text">{"Docs"}</span>
-              <span className="text2">{"Updates"}</span>
-              <span className="text">{"Blog"}</span>
-              <span className="text2">{"API"}</span>
-              <div className="column">
-                <span className="text">{"Extensions"}</span>
-                <div className="view2">
-                  <span className="text3">{"FAQ"}</span>
-                </div>
-              </div>
-              <span className="text4">{"GitHub Copilot"}</span>
-            </div>
-            <img
-              src={
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/embfm61j_expires_30_days.png"
-              }
-              className="image"
-              alt="Theme"
-            />
-            <div className="row-view3">
-              <img
-                src={
-                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/77qe7xx5_expires_30_days.png"
-                }
-                className="image2"
-                alt="Search icon"
-              />
-              <input
-                placeholder={"Search Docs"}
-                value={input1}
-                onChange={(event) => setInput1(event.target.value)}
-                className="input"
-              />
-            </div>
-            <button
-              className="button"
-              onClick={() => alert("Pressed!")}
-            >
-              <span className="text5">{"Download"}</span>
-            </button>
-          </div>
+          <Header />
         </div>
-        <div className="row-view4">
-          <span className="text6">{"Join us for"}</span>
-          <span className="text7">{"VS Code Live: Agent Mode Day"}</span>
-          <span className="text8">{"on April 16th!"}</span>
-          <span className="text9">{"×"}</span>
-        </div>
-        <div className="column2">
-          <span className="text10">
-            {"Your code editor.\nRedefined with AI."}
-          </span>
-          <div className="view3">
-            <div className="column3">
-              <div className="row-view5">
-                <button
-                  className="button2"
-                  onClick={() => alert("Pressed!")}
-                >
-                  <span className="text11">{"Download for Windows"}</span>
-                </button>
-                <button
-                  className="button3"
-                  onClick={() => alert("Pressed!")}
-                >
-                  <span className="text12">{"Try agent mode"}</span>
-                </button>
-              </div>
-              <div className="row-view6">
-                <span className="text13">{"Web"}</span>
-                <span className="text14">{","}</span>
-                <span className="text15">{"Insiders edition"}</span>
-                <span className="text14">{", or"}</span>
-                <span className="text16">{"other platforms"}</span>
-              </div>
-            </div>
-          </div>
-          <img
-            src={
-              "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/tu9c73jo_expires_30_days.png"
-            }
-            className="image3"
-            alt="Editor preview"
-          />
-          <div className="view4">
-            <span className="text17">{"Pause"}</span>
-          </div>
-        </div>
-        <div className="row-view7">
-          <button
-            className="button-column"
-            onClick={() => alert("Pressed!")}
-          >
-            <span className="text18">{"Any model for any team"}</span>
-            <span className="text19">
-              {
-                "Use AI models like Claude Sonnet out of the\nbox, or bring your own key to access models\nfrom Azure, Anthropic, Google, Ollama,\nOpenAI, and OpenRouter."
-              }
-            </span>
-            <img
-              src={
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/jlgkh508_expires_30_days.png"
-              }
-              className="image4"
-              alt="AI models"
-            />
-          </button>
-          <div className="column4">
-            <span className="text20">{"An expert on your codebase"}</span>
-            <span className="text21">
-              {
-                "Your codebase is indexed locally and remotely (on\nGitHub) to understand what's relevant, enabling\nfast, context-aware interactions."
-              }
-            </span>
-            <img
-              src={
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/1mrgcw8t_expires_30_days.png"
-              }
-              className="image5"
-              alt="Codebase expert"
-            />
-          </div>
-          <button
-            className="button-column2"
-            onClick={() => alert("Pressed!")}
-          >
-            <span className="text22">
-              {"AI that works the way your team\ndoes"}
-            </span>
-            <span className="text23">
-              {
-                "Personalize interactions using custom\ninstructions and reusable prompt files tailored\nto your workflows, tools, and projects."
-              }
-            </span>
-            <img
-              src={
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/3b9g6uic_expires_30_days.png"
-              }
-              className="image6"
-              alt="Team workflow"
-            />
-          </button>
-        </div>
+        <AlertBanner />
+        <HeroSection />
+        <FeatureSection />
+        
+        {/* 나머지 페이지 내용 */}
         <div className="column5">
           <img
             src={
-              "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/pquoo7c3_expires_30_days.png"
+              ""
             }
             className="image7"
-            alt="Agent mode banner"
+            alt=""
+            loading="lazy"
           />
           <div className="row-view8">
             <div className="column6">
-              <span className="text24">{"Agent mode"}</span>
+              <span className="text24">{"모든 로그를 하나의 앱으로."}</span>
               <span className="text25">
                 {
-                  "Tackle complex, multi-step tasks. Agent mode\nreads your codebase, suggests edits across files,\nruns terminal commands, and responds to compile\nor test failures — all in a loop until the job is done.\nFurther refine agent mode to fit your team's\nworkflows with VS Code extensions and Model\nContext Protocol (MCP) servers."
+                  "Loop monitors the screen and keyboardSave log Save log Save log Save logIf you click on that log, you will go to that log!Don't worry! Your personal information and monitoring information areIt's strictly managed and there's no need for Kwon Hwan."
                 }
               </span>
               <span className="text26">{"Build with agent mode"}</span>
@@ -182,15 +248,18 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image8"
               alt="Agent mode demo"
+              loading="lazy"
             />
           </div>
         </div>
+        
+        {/* 클라우드 저장 섹션 */}
         <div className="row-view9">
           <div className="column7">
-            <span className="text27">{"Next Edit Suggestions"}</span>
+            <span className="text27">{"클라우드로 손쉽게 저장."}</span>
             <span className="text28">
               {
-                "VS Code predicts your next move as you code.\nUse the Tab key to accept AI-powered suggestions\nright in your editor. It intelligently recommends\nwhat to change — and where — based on the\nedits you're already making."
+                "Loop uses the cloudSecurely store your data and logsThe data is stored securely through securityYou don't have to worry about security.   \n(including some euros)"
               }
             </span>
             <span className="text26">
@@ -203,11 +272,14 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
             }
             className="image8"
             alt="Next Edit Suggestions"
+            loading="lazy"
           />
         </div>
+        
+        {/* 확장 프로그램 섹션 */}
         <div className="row-view10">
           <div className="column8">
-            <span className="text29">{"Code with extensions"}</span>
+            <span className="text29">{"탑재된 AI 로 더욱 더 효율적인 일상"}</span>
             <div className="column9">
               <div className="column10">
                 <span className="text30">
@@ -230,6 +302,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image9"
               alt="Extensions"
+              loading="lazy"
             />
             <div className="row-view11">
               <span className="text33">
@@ -241,9 +314,12 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
             </div>
           </div>
         </div>
+        
+        {/* 언어 지원 섹션 */}
         <div className="row-view12">
+          {/* ...나머지 코드... */}
           <div className="column12">
-            <span className="text27">{"Code in any language"}</span>
+            <span className="text27">{"정확한 타자 수와 정확성 제공"}</span>
             <span className="text35">
               {
                 "VS Code supports almost every major\nprogramming language. Several ship in the box,\nlike JavaScript, TypeScript, CSS, and HTML, but\nextensions for others can be found in the VS Code\nMarketplace."
@@ -257,6 +333,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image10"
               alt="JavaScript"
+              loading="lazy"
             />
             <img
               src={
@@ -264,6 +341,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image10"
               alt="C#"
+              loading="lazy"
             />
             <img
               src={
@@ -271,6 +349,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image10"
               alt="Java"
+              loading="lazy"
             />
             <img
               src={
@@ -278,6 +357,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image11"
               alt="Markdown"
+              loading="lazy"
             />
           </div>
           <div className="column14">
@@ -293,6 +373,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image10"
               alt="TypeScript"
+              loading="lazy"
             />
             <img
               src={
@@ -300,6 +381,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image10"
               alt="C++"
+              loading="lazy"
             />
             <img
               src={
@@ -307,6 +389,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image10"
               alt="JSON"
+              loading="lazy"
             />
             <img
               src={
@@ -314,6 +397,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image11"
               alt="Powershell"
+              loading="lazy"
             />
           </div>
           <div className="column14">
@@ -329,6 +413,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image10"
               alt="Python"
+              loading="lazy"
             />
             <img
               src={
@@ -336,6 +421,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image10"
               alt="HTML"
+              loading="lazy"
             />
             <img
               src={
@@ -343,6 +429,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image10"
               alt="PHP"
+              loading="lazy"
             />
             <img
               src={
@@ -350,6 +437,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image11"
               alt="YAML"
+              loading="lazy"
             />
           </div>
           <div className="column15">
@@ -359,9 +447,11 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
             <span className="text37">{"YAML"}</span>
           </div>
         </div>
+        
+        {/* 커스터마이징 섹션 */}
         <div className="row-view13">
           <div className="column16">
-            <span className="text38">{"Fully customizable"}</span>
+            <span className="text38">{"UI 를 마음대로 수정."}</span>
             <span className="text39">
               {
                 "Customize your VS Code UI and layout so that it\nfits your coding style."
@@ -407,11 +497,14 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
             }
             className="image12"
             alt="Customization options"
+            loading="lazy"
           />
         </div>
+        
+        {/* 코드 어디서나 섹션 */}
         <div className="row-view13">
           <div className="column18">
-            <span className="text38">{"Code anywhere"}</span>
+            <span className="text38">{"다양한 기능과 다양한 앱들"}</span>
             <span className="text46">
               {
                 "Code wherever you're most productive, whether\nyou're connected to the cloud, a remote repository,\nor in the browser with VS Code for the Web\n(vscode.dev)."
@@ -444,11 +537,14 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
             }
             className="image13"
             alt="Code anywhere"
+            loading="lazy"
           />
         </div>
+        
+        {/* 다양한 기능 섹션 */}
         <div className="column20">
           <div className="column21">
-            <span className="text51">{"Code with rich features"}</span>
+            <span className="text51">{"Loop 의 다양한 앱들."}</span>
             <span className="text52">
               {
                 "There's a lot more to an editor. Whether it's using built-in features or\nrich extensions, there's something for everyone."
@@ -457,6 +553,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
           </div>
           <div className="column22">
             <div className="row-view14">
+              {/* ...나머지 코드... */}
               <div className="column23">
                 <img
                   src={
@@ -464,6 +561,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
                   }
                   className="image14"
                   alt="Integrated terminal"
+                  loading="lazy"
                 />
                 <span className="text53">{"Integrated terminal"}</span>
                 <span className="text54">
@@ -479,6 +577,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
                   }
                   className="image14"
                   alt="Run code"
+                  loading="lazy"
                 />
                 <span className="text55">{"Run code"}</span>
                 <span className="text56">
@@ -492,6 +591,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
                   }
                   className="image14"
                   alt="Version control"
+                  loading="lazy"
                 />
                 <span className="text55">{"Version control"}</span>
                 <span className="text56">
@@ -507,6 +607,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
                   }
                   className="image14"
                   alt="Build tasks"
+                  loading="lazy"
                 />
                 <span className="text55">{"Build tasks"}</span>
                 <span className="text54">
@@ -517,6 +618,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               </div>
             </div>
             <div className="row-view15">
+              {/* ...나머지 코드... */}
               <div className="column25">
                 <img
                   src={
@@ -524,6 +626,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
                   }
                   className="image14"
                   alt="Local history"
+                  loading="lazy"
                 />
                 <span className="text55">{"Local history"}</span>
                 <span className="text56">
@@ -539,6 +642,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
                   }
                   className="image14"
                   alt="Themes"
+                  loading="lazy"
                 />
                 <span className="text55">{"Themes"}</span>
                 <span className="text54">
@@ -554,6 +658,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
                   }
                   className="image14"
                   alt="Accessibility"
+                  loading="lazy"
                 />
                 <span className="text55">{"Accessibility"}</span>
                 <span className="text54">
@@ -569,6 +674,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
                   }
                   className="image14"
                   alt="Web support"
+                  loading="lazy"
                 />
                 <span className="text53">{"Web support"}</span>
                 <span className="text56">
@@ -580,6 +686,8 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
             </div>
           </div>
         </div>
+        
+        {/* 푸터 섹션 */}
         <div className="column26">
           <div className="row-view16">
             <img
@@ -588,6 +696,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image15"
               alt="GitHub logo"
+              loading="lazy"
             />
             <img
               src={
@@ -595,6 +704,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image16"
               alt="Microsoft logo"
+              loading="lazy"
             />
             <img
               src={
@@ -602,6 +712,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image17"
               alt="Visual Studio logo"
+              loading="lazy"
             />
             <div className="box"></div>
             <img
@@ -610,6 +721,7 @@ export const ElementLight: React.FC<ElementLightProps> = () => {
               }
               className="image18"
               alt="Azure logo"
+              loading="lazy"
             />
           </div>
           <div className="row-view17">
