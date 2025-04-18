@@ -1,7 +1,6 @@
 import React from 'react';
-import { FeatureItem } from '../common/FeatureItem';
 
-const CodeAnywhereSection: React.FC = () => {
+const CodeAnywhereSection = () => {
   return (
     <div className="row-view13">
       <div className="column18">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LogSection: React.FC = () => {
+const LogSection = () => {
   return (
     <div className="column5">
       <img

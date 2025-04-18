@@ -8,13 +8,13 @@ interface FeatureGridItemProps {
   className?: string;
 }
 
-const FeatureGridItem: React.FC<FeatureGridItemProps> = ({
+const FeatureGridItem = ({
   imageSrc,
   imageAlt,
   title,
   description,
   className = "column23"
-}) => (
+}: FeatureGridItemProps) => (
   <div className={className}>
     <img
       src={imageSrc}
@@ -29,7 +29,7 @@ const FeatureGridItem: React.FC<FeatureGridItemProps> = ({
   </div>
 );
 
-const FeatureGridSection: React.FC = () => {
+const FeatureGridSection = () => {
   return (
     <div className="column20">
       <div className="column21">

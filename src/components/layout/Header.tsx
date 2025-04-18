@@ -1,9 +1,12 @@
 import React, { useState, useCallback } from 'react';
+import { useResponsive } from '../../hooks/useResponsive';
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
   const [input1, setInput1] = useState<string>("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const { isMobile, isTablet, isMobileOrTablet } = useResponsive();
 
   const handleInputChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setInput1(event.target.value);
@@ -13,9 +16,23 @@ const Header: React.FC<HeaderProps> = () => {
     alert("Pressed!");
   }, []);
 
+  const toggleMobileMenu = useCallback(() => {
+    setMobileMenuOpen(prev => !prev);
+  }, []);
+
   return (
-    <div className="row-view">
-      <div className="row-view2">
+    <div className="row-view header">
+      {isMobileOrTablet && (
+        <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+          <div className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      )}
+
+      <div className={`row-view2 ${mobileMenuOpen && isMobileOrTablet ? 'mobile-menu-open' : ''}`}>
         <span className="text">{"Docs"}</span>
         <span className="text2">{"Updates"}</span>
         <div className="column">
@@ -25,14 +42,18 @@ const Header: React.FC<HeaderProps> = () => {
         </div>
         <span className="text4">{"GitHub Copilot"}</span>
       </div>
-      <img
-        src={
-          "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/embfm61j_expires_30_days.png"
-        }
-        className="image"
-        alt="Theme"
-        loading="lazy"
-      />
+      
+      {!isMobile && (
+        <img
+          src={
+            "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/embfm61j_expires_30_days.png"
+          }
+          className="image"
+          alt="Theme"
+          loading="lazy"
+        />
+      )}
+      
       <div className="row-view3">
         <img
           src={
@@ -49,11 +70,12 @@ const Header: React.FC<HeaderProps> = () => {
           className="input"
         />
       </div>
+      
       <button
         className="button"
         onClick={handleDownloadClick}
       >
-        <span className="text5">{"Download"}</span>
+        <span className="text5">{isMobile ? "Download" : "Download"}</span>
       </button>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FeatureItem } from '../common/FeatureItem';
 
-const CustomizeSection: React.FC = () => {
+const CustomizeSection = () => {
   return (
     <div className="row-view13">
       <div className="column16">

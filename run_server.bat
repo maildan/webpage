@@ -4,6 +4,16 @@ REM 서버 시작 스크립트
 REM 현재 디렉토리 경로 저장
 set APP_DIR=%cd%
 
+REM 환경 변수 설정 - OpenSSL 레거시 프로바이더 사용
+set NODE_OPTIONS=--openssl-legacy-provider
+REM 환경 변수 설정 - HOST를 172.16.1.235로 설정하여 내부 IP에서 실행
+set HOST=172.16.1.235
+set PORT=3001
+set REACT_APP_DOMAIN=cloop.kro.kr
+set PUBLIC_URL=http://cloop.kro.kr
+set DANGEROUSLY_DISABLE_HOST_CHECK=true
+set BROWSER=none
+
 REM Nginx 경로 설정
 set NGINX_DIR=C:\nginx
 
@@ -34,14 +44,6 @@ echo     - http://cloop.kro.kr 또는 http://116.120.104.34
 echo   - 로컬 테스트:
 echo     - http://localhost:8080
 echo.
-
-REM 환경 변수 설정 - HOST를 172.16.1.235로 설정하여 내부 IP에서 실행
-set HOST=172.16.1.235
-set PORT=3001
-set REACT_APP_DOMAIN=cloop.kro.kr
-set PUBLIC_URL=http://cloop.kro.kr
-set DANGEROUSLY_DISABLE_HOST_CHECK=true
-set BROWSER=none
 
 REM React 개발 서버 시작
 echo React 개발 서버 시작 중...

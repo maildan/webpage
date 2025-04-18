@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import FeatureCard from '../ui/FeatureCard';
 
-const FeatureSection: React.FC = () => {
+const FeatureSection = () => {
   const handleCardClick = useCallback(() => {
     alert("Pressed!");
   }, []);

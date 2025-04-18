@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CloudSection: React.FC = () => {
+const CloudSection = () => {
   return (
     <div className="row-view9">
       <div className="column7">

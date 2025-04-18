@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import "./App.css";
+import "./responsive.css"; // 반응형 CSS 파일 추가
 
 // 레이아웃 컴포넌트 임포트
 import Header from "./components/layout/Header";
@@ -25,7 +26,7 @@ export interface ElementLightProps {
 /**
  * 메인 페이지 컴포넌트
  */
-export const ElementLight: React.FC<ElementLightProps> = () => {
+export const ElementLight = (props: ElementLightProps) => {
   return (
     <div className="contain">
       <div className="scroll-view">

@@ -9,14 +9,14 @@ interface FeatureCardProps {
   className?: string;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({
+const FeatureCard = ({
   title,
   description,
   imageSrc,
   imageAlt,
   onClick,
   className
-}) => (
+}: FeatureCardProps) => (
   <button
     className={className}
     onClick={onClick}

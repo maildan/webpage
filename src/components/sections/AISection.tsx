@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AISection: React.FC = () => {
+const AISection = () => {
   return (
     <div className="row-view10">
       <div className="column8">

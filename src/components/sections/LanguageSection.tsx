@@ -1,5 +1,6 @@
 import React from 'react';
 
+// LanguageItem 컴포넌트는 현재 페이지에서 사용되지 않지만, 코드는 유지하고 type 형식을 수정합니다
 interface LanguageItemProps {
   imageSrc: string;
   imageAlt: string;
@@ -7,7 +8,7 @@ interface LanguageItemProps {
   smallImage?: boolean;
 }
 
-const LanguageItem: React.FC<LanguageItemProps> = ({ imageSrc, imageAlt, name, smallImage }) => (
+const LanguageItem = ({ imageSrc, imageAlt, name, smallImage }: LanguageItemProps) => (
   <>
     <img
       src={imageSrc}
@@ -19,7 +20,7 @@ const LanguageItem: React.FC<LanguageItemProps> = ({ imageSrc, imageAlt, name, s
   </>
 );
 
-const LanguageSection: React.FC = () => {
+const LanguageSection = () => {
   return (
     <div className="row-view12">
       <div className="column12">

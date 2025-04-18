@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-const HeroSection: React.FC = () => {
+const HeroSection = () => {
   const handleDownloadClick = useCallback(() => {
     alert("Pressed!");
   }, []);
