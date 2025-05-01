@@ -1,86 +1,54 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { useResponsive } from '../../hooks/useResponsive';
 
-interface HeaderProps {}
+interface HeaderProps {
+  // 필요한 props 정의
+}
 
 const Header: React.FC<HeaderProps> = () => {
-  const [input1, setInput1] = useState<string>("");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const { isMobile, isTablet, isMobileOrTablet } = useResponsive();
-
-  const handleInputChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setInput1(event.target.value);
-  }, []);
-
-  const handleDownloadClick = useCallback(() => {
-    alert("Pressed!");
-  }, []);
-
-  const toggleMobileMenu = useCallback(() => {
-    setMobileMenuOpen(prev => !prev);
-  }, []);
-
+  // isLargeScreen을 isLarge로 수정 (useResponsive 훅에서 이 이름으로 제공됨)
+  const { isMobile, isLarge } = useResponsive();
+  
   return (
-    <div className="row-view header">
-      {isMobileOrTablet && (
-        <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-          <div className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+    <header className="header">
+      <div className="container">
+        <div className="logo-container">
+          {/* 반응형 로고 처리 */}
+          <img 
+            src="/logo.svg" 
+            alt="Loop Logo" 
+            className={`logo ${isMobile ? 'logo-small' : ''}`} 
+          />
         </div>
-      )}
-
-      <div className={`row-view2 ${mobileMenuOpen && isMobileOrTablet ? 'mobile-menu-open' : ''}`}>
-        <span className="text">{"Docs"}</span>
-        <span className="text2">{"Updates"}</span>
-        <div className="column">
-          <div className="view2">
-            <span className="text3">{"FAQ"}</span>
-          </div>
+        
+        <nav className={`nav-menu ${isMobile ? 'mobile-nav' : ''}`}>
+          {/* 모바일 메뉴 토글 버튼 */}
+          {isMobile && (
+            <button className="mobile-menu-toggle" aria-label="메뉴 열기">
+              <span className="menu-icon"></span>
+            </button>
+          )}
+          
+          {/* 데스크탑 메뉴는 항상 표시하고, 모바일에서는 토글 시 표시 */}
+          <ul className={`nav-list ${isMobile ? 'nav-mobile' : ''}`}>
+            <li className="nav-item"><a href="#features">기능</a></li>
+            <li className="nav-item"><a href="#pricing">요금제</a></li>
+            <li className="nav-item"><a href="#support">지원</a></li>
+            {isLarge && (
+              <li className="nav-item"><a href="#resources">리소스</a></li>
+            )}
+          </ul>
+        </nav>
+        
+        <div className="header-actions">
+          <button className="btn btn-login">로그인</button>
+          {!isMobile && (
+            <button className="btn btn-primary">시작하기</button>
+          )}
         </div>
-        <span className="text4">{"GitHub Copilot"}</span>
       </div>
-      
-      {!isMobile && (
-        <img
-          src={
-            "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/embfm61j_expires_30_days.png"
-          }
-          className="image"
-          alt="Theme"
-          loading="lazy"
-        />
-      )}
-      
-      <div className="row-view3">
-        <img
-          src={
-            "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/77qe7xx5_expires_30_days.png"
-          }
-          className="image2"
-          alt="Search icon"
-          loading="lazy"
-        />
-        <input
-          placeholder={"Search Docs"}
-          value={input1}
-          onChange={handleInputChange}
-          className="input"
-        />
-      </div>
-      
-      <button
-        className="button"
-        onClick={handleDownloadClick}
-      >
-        <span className="text5">{isMobile ? "Download" : "Download"}</span>
-      </button>
-    </div>
+    </header>
   );
 };
-
-Header.displayName = 'Header';
 
 export default Header;

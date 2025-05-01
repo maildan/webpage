@@ -1,0 +1,478 @@
+/* 
+ * VS Code, Apple, Microsoft 스타일 슬림 네비게이션 메뉴
+ * 2025년 트렌드에 맞는 현대적이고 가벼운 디자인 
+ */
+
+/* 내비게이션 기본 스타일 */
+.vs-code-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-header);
+  background-color: rgba(44, 44, 50, 0.98);
+  color: #CCCCCC;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  height: 48px; /* 슬림한 높이로 설정 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 스크롤 시 더 슬림하게 변환 */
+.vs-code-nav.scrolled {
+  height: 42px; /* 스크롤 시 더 슬림하게 */
+  background-color: rgba(44, 44, 50, 0.95);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.vs-code-nav.with-banner {
+  top: 32px; /* 배너 있을 때 위치 조정 (배너 높이도 축소) */
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  height: 100%;
+}
+
+/* 로고 영역 */
+.vs-code-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 모바일에서 햄버거와 로고 간격 조정 */
+  height: 100%;
+  flex: 1; /* 모바일에서 전체 너비 사용 */
+}
+
+@media (min-width: 768px) {
+  .vs-code-logo {
+    flex: 0 0 auto; /* 태블릿/데스크톱에서는 필요한 만큼만 */
+  }
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: opacity var(--transition-fast);
+}
+
+.logo-link:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.logo-image {
+  height: 24px; /* 로고 크기도 적절하게 */
+  width: auto;
+  margin-right: 8px;
+}
+
+.logo-text {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .vs-code-nav {
+    height: 48px; /* 태블릿/데스크톱에서도 슬림함 유지 */
+  }
+  
+  .vs-code-nav.scrolled {
+    height: 44px;
+  }
+}
+
+/* 햄버거 메뉴 버튼 - 더 부드럽고 세련되게 */
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18px; /* 더 작은 크기 */
+  height: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 15px;
+  z-index: 1010;
+  transition: transform 0.25s ease;
+}
+
+.hamburger-menu:hover {
+  transform: scale(1.05);
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 1.5px; /* 더 얇은 라인 */
+  background-color: #CCCCCC;
+  transition: all 0.25s ease;
+  transform-origin: center;
+}
+
+.hamburger-menu.open .hamburger-line:nth-child(1) {
+  transform: translateY(5.5px) rotate(45deg);
+}
+
+.hamburger-menu.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-5px);
+}
+
+.hamburger-menu.open .hamburger-line:nth-child(3) {
+  transform: translateY(-5.5px) rotate(-45deg);
+}
+
+/* 메뉴 아이템 */
+.vs-code-nav-items {
+  display: flex;
+  height: 100%;
+}
+
+@media (max-width: 767px) {
+  .vs-code-nav-items {
+    position: fixed;
+    top: 48px; /* 내비게이션 높이에 맞춤 */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 48px);
+    background-color: rgba(37, 37, 38, 0.98);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    flex-direction: column;
+    padding: 1rem;
+    transform: translateY(-100%); /* Y축 방향으로 변경 - 더 부드러운 UX */
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    overflow-y: auto;
+    z-index: 990;
+  }
+  
+  .vs-code-nav.scrolled .vs-code-nav-items {
+    top: 42px; /* 스크롤 시 내비게이션 높이에 맞춤 */
+    height: calc(100vh - 42px);
+  }
+  
+  .vs-code-nav-items.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.vs-code-nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+@media (max-width: 767px) {
+  .vs-code-nav-list {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.vs-code-nav-item {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .vs-code-nav-item {
+    height: auto;
+    margin-bottom: 0.5rem; /* 간격 축소 */
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: slideInRight 0.3s ease forwards;
+    animation-delay: calc(0.05s * var(--item-index, 0));
+  }
+  
+  .vs-code-nav-items.open .vs-code-nav-item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+/* 내비게이션 링크 - 더 세련된 호버 효과 */
+.vs-code-nav-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 12px; /* 좌우 여백 축소 */
+  color: #CCCCCC;
+  text-decoration: none;
+  font-size: 13px; /* 더 작은 폰트 */
+  font-weight: 400;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.vs-code-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px; /* 패딩에 맞춰 조정 */
+  right: 12px; /* 패딩에 맞춰 조정 */
+  width: calc(100% - 24px); /* 너비 계산 */
+  height: 1.5px; /* 더 얇은 밑줄 */
+  background-color: #007ACC;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.vs-code-nav-link:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.vs-code-nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.vs-code-nav-item.active .vs-code-nav-link {
+  color: #FFFFFF;
+}
+
+.vs-code-nav-item.active .vs-code-nav-link::after {
+  transform: scaleX(1);
+}
+
+@media (max-width: 767px) {
+  .vs-code-nav-link {
+    height: auto;
+    padding: 10px 0; /* 모바일에서 패딩 줄임 */
+    font-size: 15px;
+    border-bottom: 1px solid rgba(62, 62, 66, 0.5);
+    width: 100%;
+  }
+  
+  .vs-code-nav-link::after {
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
+/* VS Code 스타일 액션 버튼 */
+.vs-code-actions {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.vs-code-action-button {
+  padding: 5px 12px; /* 패딩 축소로 버튼 높이 줄임 */
+  border-radius: 3px; /* 더 작은 라운드 코너 */
+  font-size: 13px; /* 글자 크기도 축소 */
+  text-decoration: none;
+  margin-left: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.vs-code-action-button.primary {
+  background-color: #0066B8;
+  color: #FFFFFF;
+}
+
+.vs-code-action-button.secondary {
+  background-color: transparent;
+  color: #CCCCCC;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+}
+
+.vs-code-action-button:hover {
+  opacity: 0.9;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.vs-code-action-button.primary:hover {
+  background-color: #005BA4;
+  color: #FFFFFF;
+}
+
+.vs-code-action-button.secondary:hover {
+  background-color: rgba(204, 204, 204, 0.1);
+  color: #FFFFFF;
+}
+
+@media (max-width: 767px) {
+  .vs-code-actions {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  .vs-code-action-button {
+    width: 100%;
+    padding: 10px 14px;
+    margin: 5px 0;
+    margin-left: 0;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: slideInUp 0.3s ease forwards;
+    animation-delay: calc(0.15s + (0.05s * var(--button-index, 0)));
+  }
+  
+  .vs-code-nav-items.open .vs-code-action-button {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* 모바일 메뉴 오버레이 */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 980;
+  animation: fadeIn 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 반응형 디자인 추가 설정 */
+@media (min-width: 768px) and (max-width: 991px) {
+  .nav-container {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .vs-code-nav-link {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+  
+  .vs-code-nav-link::after {
+    left: 10px;
+    right: 10px;
+    width: calc(100% - 20px);
+  }
+}
+
+@media (min-width: 992px) {
+  .vs-code-nav-link {
+    font-size: 13px;
+    padding: 0 15px;
+  }
+  
+  .vs-code-nav-link::after {
+    left: 15px;
+    right: 15px;
+    width: calc(100% - 30px);
+  }
+  
+  .vs-code-action-button {
+    padding: 5px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nav-container {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* 라이트 모드 스타일 */
+@media (prefers-color-scheme: light) {
+  .vs-code-nav {
+    background-color: rgba(243, 243, 243, 0.95);
+    color: #333333;
+  }
+  
+  .vs-code-nav.scrolled {
+    background-color: rgba(243, 243, 243, 0.98);
+  }
+  
+  .logo-link {
+    color: #333333;
+  }
+  
+  .vs-code-nav-link {
+    color: #333333;
+  }
+  
+  .vs-code-nav-link:hover {
+    color: #000000;
+  }
+  
+  .vs-code-nav-link::after {
+    background-color: #0066B8;
+  }
+  
+  .hamburger-line {
+    background-color: #333333;
+  }
+  
+  .vs-code-action-button.secondary {
+    color: #333333;
+    border-color: rgba(51, 51, 51, 0.5);
+  }
+  
+  .vs-code-action-button.secondary:hover {
+    background-color: rgba(51, 51, 51, 0.1);
+    color: #000000;
+  }
+  
+  @media (max-width: 767px) {
+    .vs-code-nav-items {
+      background-color: rgba(243, 243, 243, 0.98);
+    }
+    
+    .vs-code-nav-link {
+      border-bottom-color: #E0E0E0;
+    }
+  }
+}

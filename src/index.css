@@ -1,467 +1,336 @@
-.element-light {
-  background-color: #ffffff;
-  height: 6224px;
-  position: relative;
-  width: 1920px;
+/* 기본 변수 설정 - Apple, Microsoft, VS Code 스타일 */
+:root {
+  /* 색상 변수 */
+  --primary-color: #0078d4;
+  --text-color: #242424;
+  --text-secondary: #475569;
+  --background-color: #ffffff;
+  --light-bg: #f5f5f5;
+  --border-color: #0000001f;
+  --link-color: #005FB8;
+  --hover-color: #004C93;
+  
+  /* 타이포그래피 */
+  --base-font-size: 16px;
+  --heading-font: "Segoe UI", Helvetica, Arial, sans-serif;
+  --body-font: "Segoe UI", Helvetica, Arial, sans-serif;
+  
+  /* 간격 및 레이아웃 */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* 반응형 브레이크포인트 - Microsoft, VS Code 스타일 */
+  --mobile: 576px;      /* Small Mobile */
+  --tablet: 768px;      /* Tablet/Large Mobile */
+  --laptop: 992px;      /* Small Desktop/Laptop */
+  --desktop: 1200px;    /* Desktop */
+  --wide: 1440px;       /* Wide Screen */
+  
+  /* 컨테이너 너비 */
+  --container-sm: 100%;
+  --container-md: 100%;
+  --container-lg: 100%;
+  --container-xl: 100%;
+  
+  /* 그리드 설정 (Microsoft 12컬럼 그리드 스타일) */
+  --grid-columns: 12;
+  --grid-gutter: 1rem;
 }
 
-.element-light .overlap-6 {
-  height: 736px;
-  left: 300px;
-  position: absolute;
-  top: 1282px;
-  width: 1320px;
-}
-
-.element-light .overlap-7 {
-  height: 907px;
-  left: 300px;
-  position: absolute;
-  top: 5317px;
-  width: 1320px;
-}
-
-.element-light .background-border-2 {
-  background: linear-gradient(
-    178deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(0, 188, 242, 0.08) 15%,
-    rgba(0, 188, 242, 0.08) 75%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-color: #0000001f;
-  border-top-style: solid;
-  border-top-width: 1px;
-  height: 40px;
-  left: 0;
-  overflow-y: scroll;
-  position: absolute;
-  top: 58px;
-  width: 1920px;
-}
-
-.element-light .background-border-2::-webkit-scrollbar {
-  display: none;
-  width: 0;
-}
-
-.element-light .overlap-8 {
-  height: 24px;
-  left: 768px;
-  position: absolute;
-  top: 8px;
-  width: 261px;
-}
-
-.element-light .text-wrapper-22 {
-  color: #475569;
-  font-family: "Segoe UI-Regular", Helvetica;
-  font-size: 14px;
-  font-weight: 400;
-  height: 23px;
-  left: 0;
-  letter-spacing: 0;
-  line-height: 22.4px;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  white-space: nowrap;
-  width: 69px;
-}
-
-.element-light .link-20 {
-  align-items: center;
-  border-radius: 2px;
-  display: inline-flex;
-  flex-direction: column;
-  left: 68px;
-  position: absolute;
-  top: 1px;
-}
-
-.element-light .text-wrapper-23 {
-  color: #005fb8;
-  font-family: var(--code-visualstudio-com-semantic-link-underline-font-family);
-  font-size: var(--code-visualstudio-com-semantic-link-underline-font-size);
-  font-style: var(--code-visualstudio-com-semantic-link-underline-font-style);
-  font-weight: var(--code-visualstudio-com-semantic-link-underline-font-weight);
-  letter-spacing: var(
-    --code-visualstudio-com-semantic-link-underline-letter-spacing
-  );
-  line-height: var(--code-visualstudio-com-semantic-link-underline-line-height);
-  margin-top: -1.00px;
-  position: relative;
-  text-align: center;
-  text-decoration: underline;
-  white-space: nowrap;
-  width: fit-content;
-}
-
-.element-light .on-april {
-  color: #475569;
-  font-family: var(--code-visualstudio-com-segoe-UI-regular-font-family);
-  font-size: var(--code-visualstudio-com-segoe-UI-regular-font-size);
-  font-style: var(--code-visualstudio-com-segoe-UI-regular-font-style);
-  font-weight: var(--code-visualstudio-com-segoe-UI-regular-font-weight);
-  height: 23px;
-  left: 1034px;
-  letter-spacing: var(--code-visualstudio-com-segoe-UI-regular-letter-spacing);
-  line-height: var(--code-visualstudio-com-segoe-UI-regular-line-height);
-  position: absolute;
-  text-align: center;
-  top: 8px;
-  white-space: nowrap;
-  width: 86px;
-}
-
-.element-light .button-2 {
-  all: unset;
-  align-items: center;
-  border-radius: 4px;
+/* 기본 리셋 및 박스 모델 설정 */
+*, *::before, *::after {
   box-sizing: border-box;
-  display: flex;
-  height: 32px;
-  justify-content: center;
-  left: 1872px;
-  padding: 2px 0px 6px;
-  position: absolute;
-  top: 4px;
-  width: 14px;
+  margin: 0;
+  padding: 0;
 }
 
-.element-light .text-wrapper-24 {
-  color: #333333;
-  font-family: var(--code-visualstudio-com-segoe-UI-light-font-family);
-  font-size: var(--code-visualstudio-com-segoe-UI-light-font-size);
-  font-style: var(--code-visualstudio-com-segoe-UI-light-font-style);
-  font-weight: var(--code-visualstudio-com-segoe-UI-light-font-weight);
-  letter-spacing: var(--code-visualstudio-com-segoe-UI-light-letter-spacing);
-  line-height: var(--code-visualstudio-com-segoe-UI-light-line-height);
-  margin-left: -0.89px;
-  margin-right: -0.89px;
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font);
+  font-size: var(--base-font-size);
+  line-height: 1.5;
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  overflow-x: hidden;
+}
+
+/* 전체 화면 레이아웃: Apple 풀-블리드 스타일 적용 */
+.element-light {
+  width: 100%;
+  height: auto;
   position: relative;
-  white-space: nowrap;
-  width: fit-content;
+  background-color: var(--background-color);
+  overflow-x: hidden;
 }
 
+/* 컨테이너 및 기본 레이아웃 구조 */
+.contain, .view, .view2, .view3, .view4 {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+/* 네비게이션 - Microsoft 스타일 적용 */
 .element-light .navigation-top-level-wrapper {
-  align-items: center;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  left: 0;
-  min-height: 50px;
   position: fixed;
   top: 0;
-  width: 1920px;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 .element-light .navigation-top-level {
+  width: 100%;
   height: 58px;
-  position: relative;
-  width: 1320px;
-}
-
-.element-light .overlap-9 {
-  height: 58px;
-  left: 40px;
-  position: relative;
-  width: 1240px;
-}
-
-.element-light .link-21 {
-  align-items: flex-start;
-  background-image: url(./link.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  border-radius: 2px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
   display: flex;
-  flex-direction: column;
-  height: 58px;
-  left: 0;
-  padding: 19px 15px 15px 36px;
-  position: absolute;
-  top: 0;
-  width: 229px;
-}
-
-.element-light .text-wrapper-25 {
-  color: #242424;
-  font-family: "Segoe UI-Bold", Helvetica;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.20px;
-  line-height: 20px;
-  margin-top: -1.00px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-}
-
-.element-light .container-10 {
-  height: 58px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 1240px;
-}
-
-.element-light .list-3 {
-  align-items: flex-start;
-  display: flex;
-  justify-content: center;
-  left: 229px;
-  position: absolute;
-  top: 0;
-  width: 536px;
-}
-
-.element-light .item-link-3 {
-  align-items: flex-start;
-  border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-  padding: 0px 12px;
-  position: relative;
-  width: 60.45px;
-}
-
-.element-light .text-wrapper-26 {
-  color: #333333;
-  font-family: "Segoe UI-Regular", Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 58px;
-  margin-top: -1.00px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-}
-
-.element-light .item-link-4 {
-  align-items: flex-start;
-  border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-  padding: 0px 12px;
-  position: relative;
-  width: 83.59px;
-}
-
-.element-light .item-link-5 {
-  align-items: flex-start;
-  border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-  padding: 0px 12px;
-  position: relative;
-  width: 56.03px;
-}
-
-.element-light .item-link-6 {
-  align-items: flex-start;
-  border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-  padding: 0px 12px;
-  position: relative;
-  width: 49.8px;
-}
-
-.element-light .item-link-7 {
-  align-items: flex-start;
-  border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-  padding: 0px 12px;
-  position: relative;
-  width: 102.27px;
-}
-
-.element-light .item-link-8 {
-  align-items: flex-start;
-  border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-  padding: 0px 12px;
-  position: relative;
-  width: 56.02px;
-}
-
-.element-light .item-link-9 {
-  align-items: flex-start;
-  border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-  padding: 0px 12px;
-  position: relative;
-  width: 128.05px;
-}
-
-.element-light .text-wrapper-27 {
-  color: #333333;
-  font-family: "Segoe UI-Regular", Helvetica;
-  font-size: 15.8px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 58px;
-  margin-right: -0.95px;
-  margin-top: -1.00px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-}
-
-.element-light .item-button {
   align-items: center;
-  background-color: #ffffff;
-  border-radius: 4px;
-  display: flex;
-  height: 32px;
-  justify-content: center;
-  left: 888px;
-  padding: 1px 6px;
-  position: absolute;
-  top: 13px;
-  width: 32px;
+  justify-content: space-between;
 }
 
-.element-light .switch-to-the-light {
-  align-items: flex-start;
-  display: flex;
-  height: 20px;
-  position: relative;
-  width: 20px;
-}
-
-.element-light .theme-dark-svg-fill {
-  align-items: center;
+/* 컨텐츠 영역 - 유동적 컨테이너 */
+.scroll-view {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  height: 20px;
-  justify-content: center;
-  position: relative;
-  width: 20px;
-}
-
-.element-light .theme-dark-svg {
-  height: 20px;
-  position: relative;
-  width: 20px;
-}
-
-.element-light .search-search {
-  height: 32px;
-  left: 924px;
-  position: absolute;
-  top: 13px;
-  width: 200px;
-}
-
-.element-light .overlap-group-5 {
-  border-radius: 4px;
-  height: 35px;
-  position: relative;
-}
-
-.element-light .input-search-text {
   align-items: flex-start;
-  border: 1px solid;
-  border-color: #0000001a;
-  border-radius: 4px;
+  background-color: var(--background-color);
+}
+
+/* 배경 요소 - 전체 너비로 확장 */
+.element-light .background-border-2 {
+  width: 100%;
+  height: auto;
+  overflow-y: hidden;
+  position: relative;
+}
+
+/* 컬럼 레이아웃 - 플렉스박스 기반 */
+.column, .column2, .column3, .column4, .column5 {
   display: flex;
   flex-direction: column;
-  left: 0;
-  overflow: hidden;
-  padding: 8px 13px 8px 37px;
-  position: absolute;
-  top: 0;
-  width: 200px;
-}
-
-.element-light .container-11 {
-  align-items: flex-start;
-  align-self: stretch;
-  display: flex;
-  flex: 0 0 auto;
-  flex-direction: column;
-  position: relative;
   width: 100%;
 }
 
-.element-light .text-wrapper-28 {
-  align-self: stretch;
-  color: #333333;
-  font-family: var(--code-visualstudio-com-semantic-input-font-family);
-  font-size: var(--code-visualstudio-com-semantic-input-font-size);
-  font-style: var(--code-visualstudio-com-semantic-input-font-style);
-  font-weight: var(--code-visualstudio-com-semantic-input-font-weight);
-  letter-spacing: var(--code-visualstudio-com-semantic-input-letter-spacing);
-  line-height: var(--code-visualstudio-com-semantic-input-line-height);
-  margin-top: -1.00px;
-  position: relative;
-}
-
-.element-light .button-search {
-  align-items: center;
-  border-radius: 0px 4px 4px 0px;
-  display: inline-flex;
-  left: 7px;
-  padding: 3.3px 6px 0.7px;
-  position: absolute;
-  top: 6px;
-}
-
-.element-light .search {
-  align-items: flex-start;
-  display: inline-flex;
-  flex: 0 0 auto;
-  position: relative;
-}
-
-.element-light .search-svg-fill {
-  align-items: center;
+/* 로우 레이아웃 - VS Code 스타일 플렉스박스 */
+.row-view, .row-view2, .row-view3 {
   display: flex;
-  flex-direction: column;
-  height: 16px;
-  justify-content: center;
-  position: relative;
-  width: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0;
 }
 
-.element-light .search-svg {
-  height: 16px;
-  position: relative;
-  width: 16px;
+/* 유동적 이미지 - Apple 스타일 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
-.element-light .item-link-10 {
-  align-items: flex-start;
-  background-color: #0078d4;
-  border-radius: 4px;
-  display: inline-flex;
-  flex-direction: column;
-  left: 1132px;
-  padding: 8px 16px;
-  position: absolute;
-  top: 13px;
+/* 미디어 쿼리 - 모바일 퍼스트 반응형 접근 */
+
+/* 태블릿 (576px 이상) */
+@media (min-width: 576px) {
+  :root {
+    --base-font-size: 16px;
+  }
+  
+  .contain, .view, .view2, .view3, .view4 {
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+  
+  .element-light .navigation-top-level {
+    padding: 0 var(--spacing-lg);
+  }
 }
 
-.element-light .text-wrapper-29 {
-  color: #ffffff;
-  font-family: var(--code-visualstudio-com-semantic-link-font-family);
-  font-size: var(--code-visualstudio-com-semantic-link-font-size);
-  font-style: var(--code-visualstudio-com-semantic-link-font-style);
-  font-weight: var(--code-visualstudio-com-semantic-link-font-weight);
-  letter-spacing: var(--code-visualstudio-com-semantic-link-letter-spacing);
-  line-height: var(--code-visualstudio-com-semantic-link-line-height);
-  margin-top: -1.00px;
+/* 중간 태블릿 (768px 이상) */
+@media (min-width: 768px) {
+  :root {
+    --base-font-size: 16px;
+  }
+  
+  .contain, .view, .view2, .view3, .view4 {
+    width: var(--container-md);
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+  }
+  
+  .element-light .navigation-top-level {
+    padding: 0 var(--spacing-xl);
+  }
+  
+  /* 여기에 태블릿용 그리드 시스템 적용 */
+  .row-view {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+/* 랩탑 (992px 이상) */
+@media (min-width: 992px) {
+  .contain, .view, .view2, .view3, .view4 {
+    width: var(--container-lg);
+  }
+}
+
+/* 데스크톱 (1200px 이상) */
+@media (min-width: 1200px) {
+  .contain, .view, .view2, .view3, .view4 {
+    width: var(--container-xl);
+    max-width: 1920px;
+  }
+  
+  .element-light .navigation-top-level {
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+}
+
+/* 와이드 스크린 (1440px 이상) */
+@media (min-width: 1440px) {
+  .element-light .overlap-6,
+  .element-light .overlap-7 {
+    position: relative;
+    height: auto;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    left: auto;
+    top: auto;
+  }
+}
+
+/* 기존 클래스 재정의 - 절대 위치에서 상대 위치로 변경 */
+.element-light .overlap-6,
+.element-light .overlap-7 {
   position: relative;
-  white-space: nowrap;
-  width: fit-content;
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  left: auto;
+  top: auto;
+}
+
+/* 텍스트 스타일 - 기존 스타일 유지 */
+.text, .text2, .text3, .text4, .text5, .text6, .text7, .text8, .text9 {
+  /* 기존 스타일 유지 */
+}
+
+/* 히어로 텍스트 스타일 (text10) - 반응형으로 변경 */
+.text10 {
+  color: var(--text-color);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 나머지 텍스트 스타일 */
+.text11, .text12, .text13, .text14, .text15, .text16, .text17, .text18, .text19, .text20 {
+  /* 기존 스타일 유지 */
+}
+
+/* 버튼 및 카드 스타일 */
+.button, .button2, .button3, .button-column, .button-column2 {
+  /* 기존 스타일 유지 */
+}
+
+/* 이미지 스타일 - 반응형으로 변경 */
+.image, .image2, .image3, .image4, .image5, .image6, .image7, .image8 {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Microsoft 스타일 그리드 시스템 */
+.ms-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--grid-gutter);
+}
+
+@media (min-width: 768px) {
+  .ms-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .ms-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+/* 모든 디바이스에서 검은색 배경 제거 */
+#root, .App, body, html, .element-light {
+  background-color: var(--background-color) !important;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* 애니메이션 관련 스타일 정의 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 접근성 지원 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 다크모드 지원 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --light-bg: #2a2a2a;
+    --border-color: rgba(255, 255, 255, 0.1);
+  }
 }
 
 /* Visual Studio Code 웹사이트 스타일 - 메인 레이아웃 스타일 */
@@ -477,7 +346,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-/* 아래는 원본 CSS의 레이아웃 요소들 */
+/* 아래는 원본 CSS의 레이아웃 요소들 - 반응형으로 수정 */
 .absolute-text {
 	position: absolute;
 	bottom: -9px;
@@ -528,7 +397,7 @@ code {
 	text-align: left;
 }
 
-.button-column {
+.button-column, .button-column2 {
 	flex-shrink: 0;
 	display: flex;
 	flex-direction: column;
@@ -536,25 +405,11 @@ code {
 	background: #00000000;
 	border-radius: 10px;
 	border: 1px solid #0000001A;
-	padding-top: 17px;
-	padding-bottom: 17px;
-	margin-top: 92px;
-	margin-right: 49px;
+	padding: 17px;
+	margin-top: 48px;
+	margin-bottom: 24px;
 	text-align: left;
-}
-
-.button-column2 {
-	flex-shrink: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	background: #00000000;
-	border-radius: 10px;
-	border: 1px solid #0000001A;
-	padding-top: 17px;
-	padding-bottom: 17px;
-	margin-top: 92px;
-	text-align: left;
+  width: 100%;
 }
 
 .column {
@@ -562,18 +417,17 @@ code {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+  width: 100%;
 }
 
-.column2 {
-	align-self: stretch;
+.column2, .column5, .column20, .column26 {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	background: #FFFFFF;
-	padding-top: 26px;
+	padding: 26px 16px;
 	margin-bottom: 1px;
-	margin-left: 300px;
-	margin-right: 300px;
+  width: 100%;
 }
 
 .column3 {
@@ -581,6 +435,7 @@ code {
 	flex-direction: column;
 	align-items: center;
 	padding-bottom: 37px;
+  width: 100%;
 }
 
 .column4 {
@@ -591,156 +446,95 @@ code {
 	background: #00000000;
 	border-radius: 10px;
 	border: 1px solid #0000001A;
-	padding-top: 17px;
-	padding-bottom: 17px;
-	margin-top: 92px;
-	margin-right: 47px;
+	padding: 17px;
+	margin-top: 48px;
+	margin-bottom: 24px;
+  width: 100%;
 }
 
-.column5 {
-	align-self: stretch;
-	display: flex;
-	flex-direction: column;
-	margin-left: 300px;
-	margin-right: 300px;
-}
-
-.column6 {
+.column6, .column7, .column12 {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	margin-top: 144px;
-	margin-right: 12px;
+	margin-top: 48px;
+	margin-bottom: 24px;
+  width: 100%;
 }
 
-.column7 {
+@media (min-width: 768px) {
+  .column6, .column7, .column12 {
+    margin-top: 72px;
+    margin-right: 12px;
+  }
+}
+
+@media (min-width: 992px) {
+  .column6, .column7, .column12 {
+    margin-top: 144px;
+  }
+}
+
+.column8, .column9, .column10, .column11 {
 	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-top: 162px;
-	margin-right: 12px;
-}
-
-.column8 {
-	flex-shrink: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding-bottom: 11px;
+  width: 100%;
 }
 
-.column9 {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-left: 40px;
-}
-
-.column10 {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-bottom: 4px;
-	position: relative;
-}
-
-.column11 {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-}
-
-.column12 {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-right: 12px;
-}
-
-.column13 {
+.column13, .column14, .column15 {
 	flex-shrink: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin-top: 20px;
-	margin-right: 12px;
+	margin-bottom: 20px;
+  width: 100%;
 }
 
-.column14 {
-	flex-shrink: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-top: 32px;
-	margin-right: 134px;
+@media (min-width: 768px) {
+  .column13, .column14, .column15 {
+    margin-right: 12px;
+  }
 }
 
-.column15 {
-	flex-shrink: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-top: 32px;
-}
-
-.column16 {
-	flex-shrink: 0;
+.column16, .column17, .column18, .column19 {
+	flex: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding-bottom: 22px;
-	margin-right: 40px;
+  width: 100%;
 }
 
-.column17 {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-bottom: 23px;
-	margin-left: 40px;
-}
-
-.column18 {
-	flex-shrink: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	padding-bottom: 23px;
-	margin-right: 40px;
-}
-
-.column19 {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-bottom: 22px;
-	margin-left: 40px;
-}
-
-.column20 {
-	align-self: stretch;
-	padding-top: 32px;
-	margin-left: 300px;
-	margin-right: 300px;
+@media (min-width: 768px) {
+  .column16, .column17, .column18, .column19 {
+    margin-right: 5%;
+  }
 }
 
 .column21 {
-	align-self: stretch;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 16px 420px;
+	padding: 16px;
 	margin-bottom: 32px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .column21 {
+    padding: 16px 5%;
+  }
 }
 
 .column22 {
-	align-self: stretch;
+  width: 100%;
 }
 
-.column23 {
+.column23, .column24, .column25 {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -748,149 +542,55 @@ code {
 	background: #00000000;
 	border-radius: 10px;
 	border: 1px solid #0000001A;
-	padding-top: 25px;
-	padding-bottom: 25px;
-	margin-right: 16px;
+	padding: 25px;
+	margin-bottom: 16px;
+  width: 100%;
 }
 
-.column24 {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	background: #00000000;
-	border-radius: 10px;
-	border: 1px solid #0000001A;
-	padding-top: 25px;
-	padding-bottom: 25px;
-}
-
-.column25 {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	background: #00000000;
-	border-radius: 10px;
-	border: 1px solid #0000001A;
-	padding-top: 25px;
-	padding-bottom: 48px;
-	margin-right: 16px;
-}
-
-.column26 {
-	align-self: stretch;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	background: #FFFFFF;
-	padding-top: 96px;
-	padding-bottom: 96px;
-	margin-left: 300px;
-	margin-right: 300px;
+@media (min-width: 768px) {
+  .column23, .column24, .column25 {
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
 }
 
 .contain {
 	display: flex;
 	flex-direction: column;
 	background: #FFFFFF;
+  width: 100%;
 }
 
-.image {
+/* 이미지 클래스 너비 수정 */
+.image, .image2 {
 	width: 32px;
 	height: 32px;
 	margin-right: 3px;
 	object-fit: fill;
 }
 
-.image2 {
-	width: 28px;
-	height: 20px;
-	margin-right: 1px;
-	object-fit: fill;
-}
-
-.image3 {
+.image3, .image4, .image5, .image6, .image7, .image8, .image9 {
 	border-radius: 9px;
-	height: 775px;
+	height: auto;
 	margin-bottom: 11px;
-	margin-left: 40px;
-	margin-right: 40px;
-	align-self: stretch;
+	align-self: center;
 	object-fit: fill;
+  max-width: 100%;
 }
 
-.image4 {
-	border-radius: 10px;
-	width: 335px;
-	height: 191px;
-	margin-left: 17px;
-	margin-right: 17px;
-	object-fit: fill;
-}
-
-.image5 {
-	border-radius: 10px;
-	height: 220px;
-	margin-left: 16px;
-	margin-right: 16px;
-	align-self: stretch;
-	object-fit: fill;
-}
-
-.image6 {
-	border-radius: 10px;
-	width: 335px;
-	height: 179px;
-	margin-left: 17px;
-	margin-right: 17px;
-	object-fit: fill;
-}
-
-.image7 {
-	height: 263px;
-	align-self: stretch;
-	object-fit: fill;
-}
-
-.image8 {
-	width: 800px;
-	height: 579px;
-	object-fit: fill;
-}
-
-.image9 {
-	height: 371px;
-	margin-bottom: 15px;
-	margin-left: 40px;
-	margin-right: 40px;
-	align-self: stretch;
-	object-fit: fill;
-}
-
-.image10 {
+.image10, .image11 {
 	width: 40px;
 	height: 40px;
 	margin-bottom: 8px;
 	object-fit: fill;
 }
 
-.image11 {
-	width: 40px;
-	height: 40px;
+.image12, .image13 {
+	width: 100%;
+	max-width: 800px;
+	height: auto;
 	object-fit: fill;
-}
-
-.image12 {
-	width: 800px;
-	height: 443px;
-	object-fit: fill;
-}
-
-.image13 {
-	width: 800px;
-	height: 473px;
-	object-fit: fill;
+  margin: 0 auto;
 }
 
 .image14 {
@@ -902,29 +602,10 @@ code {
 	object-fit: fill;
 }
 
-.image15 {
-	width: 18px;
-	height: 18px;
-	margin-right: 23px;
-	object-fit: fill;
-}
-
-.image16 {
+.image15, .image16, .image17, .image18 {
 	width: 24px;
 	height: 25px;
 	margin-right: 23px;
-	object-fit: fill;
-}
-
-.image17 {
-	width: 24px;
-	height: 25px;
-	object-fit: fill;
-}
-
-.image18 {
-	width: 23px;
-	height: 25px;
 	object-fit: fill;
 }
 
@@ -938,152 +619,59 @@ code {
 	padding-bottom: 1px;
 }
 
-.row-view {
-	width: 1320px;
+/* 로우 뷰 클래스 수정 */
+.row-view, .row-view2, .row-view3, .row-view4, .row-view5, .row-view6 {
+	width: 100%;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
-	padding-left: 270px;
-	padding-right: 41px;
+	padding: 0 16px;
 }
 
-.row-view2 {
-	flex-shrink: 0;
+@media (min-width: 768px) {
+  .row-view, .row-view2, .row-view3, .row-view4, .row-view5, .row-view6 {
+    padding: 0 5%;
+  }
+}
+
+.row-view7, .row-view8, .row-view9, .row-view10, .row-view11, .row-view12, .row-view13 {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: flex-start;
-	padding-right: 1px;
-	margin-right: 121px;
+	padding: 24px 16px;
+  width: 100%;
 }
 
-.row-view3 {
-	flex-shrink: 0;
-	display: flex;
-	align-items: center;
-	border-radius: 4px;
-	border: 1px solid #0000001A;
-	padding: 6px 7px;
-	margin-right: 8px;
+@media (min-width: 768px) {
+  .row-view7, .row-view8, .row-view9, .row-view10, .row-view11, .row-view12, .row-view13 {
+    padding: 48px 5%;
+  }
 }
 
-.row-view4 {
-	align-self: stretch;
+.row-view14, .row-view15, .row-view16, .row-view17 {
 	display: flex;
-	align-items: center;
-	background: #00000000;
-	padding: 4px 34px 4px 768px;
-}
-
-.row-view5 {
-	display: flex;
-	align-items: center;
-	margin-bottom: 6px;
-}
-
-.row-view6 {
-	display: flex;
-	align-items: center;
-}
-
-.row-view7 {
-	align-self: stretch;
-	display: flex;
-	align-items: flex-start;
-	padding-left: 40px;
-	padding-right: 40px;
-	margin-left: 300px;
-	margin-right: 300px;
-}
-
-.row-view8 {
-	align-self: stretch;
-	display: flex;
-	align-items: flex-start;
-	padding: 48px 40px;
-}
-
-.row-view9 {
-	align-self: stretch;
-	display: flex;
-	align-items: flex-start;
-	padding: 48px 40px;
-	margin-bottom: 1px;
-	margin-left: 300px;
-	margin-right: 300px;
-}
-
-.row-view10 {
-	align-self: stretch;
-	display: flex;
-	align-items: center;
-	padding-top: 48px;
-	padding-bottom: 48px;
-	margin-left: 300px;
-	margin-right: 300px;
-}
-
-.row-view11 {
-	align-self: stretch;
-	display: flex;
-	align-items: flex-start;
-	margin-left: 291px;
-	margin-right: 291px;
-}
-
-.row-view12 {
-	align-self: stretch;
-	display: flex;
-	align-items: flex-start;
-	padding: 48px 40px 68px 40px;
-	margin-bottom: 1px;
-	margin-left: 300px;
-	margin-right: 300px;
-}
-
-.row-view13 {
-	display: flex;
-	align-items: center;
-	padding-top: 48px;
-	padding-bottom: 48px;
-	margin-bottom: 1px;
-	margin-left: 300px;
-}
-
-.row-view14 {
-	align-self: stretch;
-	display: flex;
+	flex-wrap: wrap;
 	align-items: flex-start;
 	margin-bottom: 17px;
-	margin-left: 40px;
-	margin-right: 40px;
+	padding: 0 16px;
+  width: 100%;
 }
 
-.row-view15 {
-	align-self: stretch;
-	display: flex;
-	align-items: flex-start;
-	margin-left: 40px;
-	margin-right: 40px;
-}
-
-.row-view16 {
-	align-self: stretch;
-	display: flex;
-	align-items: center;
-	margin-bottom: 17px;
-	margin-left: 40px;
-	margin-right: 40px;
-}
-
-.row-view17 {
-	display: flex;
-	align-items: center;
-	margin-left: 40px;
+@media (min-width: 768px) {
+  .row-view14, .row-view15, .row-view16, .row-view17 {
+    padding: 0 5%;
+  }
 }
 
 .scroll-view {
-	height: 6332px;
-	align-self: stretch;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	background: #FFFFFF;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }

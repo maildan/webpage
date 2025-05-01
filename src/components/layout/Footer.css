@@ -1,0 +1,335 @@
+/* 
+ * VS Code 스타일 푸터 컴포넌트
+ * 다크모드/라이트모드 및 반응형 웹 디자인을 지원합니다.
+ */
+
+/* 푸터 기본 스타일 */
+.vs-code-footer {
+  background-color: var(--vscode-footer-bg, #1e1e1e);
+  color: var(--vscode-footer-text, #cccccc);
+  padding: 40px 0 20px;
+  margin-top: 60px;
+  width: 100%;
+  font-size: 13px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 컨테이너 */
+.footer-container {
+  max-width: var(--container-max-width, 1200px);
+  margin: 0 auto;
+  padding: 0 var(--container-padding, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 푸터 상단 */
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--vscode-border, rgba(204, 204, 204, 0.2));
+  padding-bottom: 30px;
+}
+
+/* 브랜드 섹션 */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 200px;
+  flex: 1;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo-image {
+  height: 24px;
+  width: auto;
+}
+
+.footer-logo-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--vscode-footer-logo-text, #ffffff);
+}
+
+/* 테마 토글 버튼 */
+.theme-toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--vscode-button-secondary-background, transparent);
+  color: var(--vscode-button-secondary-foreground, #cccccc);
+  border: 1px solid var(--vscode-button-secondary-border, rgba(204, 204, 204, 0.4));
+  border-radius: 3px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  max-width: fit-content;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--vscode-button-secondary-hover-background, rgba(90, 93, 94, 0.31));
+  border-color: var(--vscode-button-secondary-hover-border, rgba(204, 204, 204, 0.6));
+}
+
+.theme-toggle-text {
+  font-size: 12px;
+}
+
+/* 푸터 내비게이션 */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  flex: 2;
+}
+
+.footer-nav-group {
+  min-width: 140px;
+}
+
+.footer-nav-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 15px;
+  color: var(--vscode-footer-title, #e7e7e7);
+}
+
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-nav-item {
+  margin: 0;
+}
+
+.footer-nav-link {
+  color: var(--vscode-footer-link, #cccccc);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 13px;
+}
+
+.footer-nav-link:hover {
+  color: var(--vscode-footer-link-hover, #ffffff);
+  text-decoration: underline;
+}
+
+/* 푸터 중간 - 파트너/소셜 링크 */
+.footer-middle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--vscode-border, rgba(204, 204, 204, 0.2));
+  padding-bottom: 30px;
+}
+
+/* 파트너 로고 */
+.partner-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}
+
+.partner-logo-link {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.partner-logo-link:hover {
+  opacity: 1;
+}
+
+.partner-logo {
+  height: 24px;
+  width: auto;
+  filter: var(--vscode-logo-filter, brightness(0.9) contrast(1.1));
+}
+
+/* 소셜 링크 */
+.social-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.social-link {
+  color: var(--vscode-footer-link, #cccccc);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-link:hover {
+  color: var(--vscode-footer-link-hover, #ffffff);
+  transform: translateY(-2px);
+}
+
+/* 푸터 하단 */
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+/* 저작권 */
+.copyright {
+  font-size: 12px;
+  color: var(--vscode-footer-secondary-text, #a0a0a0);
+}
+
+.copyright p {
+  margin: 4px 0;
+}
+
+.made-with {
+  font-size: 11px;
+}
+
+.heart {
+  color: #e25555;
+}
+
+/* 언어 선택기 */
+.language-select {
+  background-color: var(--vscode-dropdown-background, #252526);
+  color: var(--vscode-dropdown-foreground, #cccccc);
+  border: 1px solid var(--vscode-dropdown-border, #3c3c3c);
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.language-select:focus {
+  outline: 1px solid var(--vscode-focusBorder, #007fd4);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .vs-code-footer {
+    padding: 30px 0 20px;
+  }
+  
+  .footer-top {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .footer-nav {
+    gap: 30px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-nav {
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .footer-middle {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .partner-logos {
+    justify-content: flex-start;
+  }
+}
+
+/* 라이트 모드 (다크 모드가 false일 때) */
+:root:not(.dark-mode) .vs-code-footer,
+body:not(.dark-mode) .vs-code-footer {
+  --vscode-footer-bg: #f3f3f3;
+  --vscode-footer-text: #333333;
+  --vscode-footer-logo-text: #333333;
+  --vscode-footer-title: #333333;
+  --vscode-footer-link: #333333;
+  --vscode-footer-link-hover: #000000;
+  --vscode-footer-secondary-text: #666666;
+  --vscode-border: rgba(0, 0, 0, 0.1);
+  --vscode-button-secondary-background: #ffffff;
+  --vscode-button-secondary-foreground: #333333;
+  --vscode-button-secondary-border: rgba(0, 0, 0, 0.2);
+  --vscode-button-secondary-hover-background: rgba(0, 0, 0, 0.05);
+  --vscode-button-secondary-hover-border: rgba(0, 0, 0, 0.3);
+  --vscode-dropdown-background: #ffffff;
+  --vscode-dropdown-foreground: #333333;
+  --vscode-dropdown-border: #dddddd;
+  --vscode-focusBorder: #0066b8;
+  --vscode-logo-filter: none;
+}
+
+/* 다크 모드 기본값 (기본적으로 다크 모드 적용) */
+:root,
+body,
+.dark-mode {
+  --vscode-footer-bg: #1e1e1e;
+  --vscode-footer-text: #cccccc;
+  --vscode-footer-logo-text: #ffffff;
+  --vscode-footer-title: #e7e7e7;
+  --vscode-footer-link: #cccccc;
+  --vscode-footer-link-hover: #ffffff;
+  --vscode-footer-secondary-text: #a0a0a0;
+  --vscode-border: rgba(204, 204, 204, 0.2);
+  --vscode-button-secondary-background: transparent;
+  --vscode-button-secondary-foreground: #cccccc;
+  --vscode-button-secondary-border: rgba(204, 204, 204, 0.4);
+  --vscode-button-secondary-hover-background: rgba(90, 93, 94, 0.31);
+  --vscode-button-secondary-hover-border: rgba(204, 204, 204, 0.6);
+  --vscode-dropdown-background: #252526;
+  --vscode-dropdown-foreground: #cccccc;
+  --vscode-dropdown-border: #3c3c3c;
+  --vscode-focusBorder: #007fd4;
+  --vscode-logo-filter: brightness(1.2);
+}
+
+/* 라이트 모드 (다크 모드가 false일 때) - 미디어 쿼리 기반 */
+@media (prefers-color-scheme: light) {
+  :root:not(.dark-mode-override) .vs-code-footer,
+  body:not(.dark-mode-override) .vs-code-footer {
+    --vscode-footer-bg: #f3f3f3;
+    --vscode-footer-text: #333333;
+    --vscode-footer-logo-text: #333333;
+    --vscode-footer-title: #333333;
+    --vscode-footer-link: #333333;
+    --vscode-footer-link-hover: #000000;
+    --vscode-footer-secondary-text: #666666;
+    --vscode-border: rgba(0, 0, 0, 0.1);
+    --vscode-button-secondary-background: #ffffff;
+    --vscode-button-secondary-foreground: #333333;
+    --vscode-button-secondary-border: rgba(0, 0, 0, 0.2);
+    --vscode-button-secondary-hover-background: rgba(0, 0, 0, 0.05);
+    --vscode-button-secondary-hover-border: rgba(0, 0, 0, 0.3);
+    --vscode-dropdown-background: #ffffff;
+    --vscode-dropdown-foreground: #333333;
+    --vscode-dropdown-border: #dddddd;
+    --vscode-focusBorder: #0066b8;
+    --vscode-logo-filter: none;
+  }
+}

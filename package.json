@@ -1,12 +1,16 @@
 {
   "name": "loop",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -22,6 +26,7 @@
   },
   "scripts": {
     "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+    "start:mcp": "node server.js",
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -45,7 +50,9 @@
       "last 1 safari version"
     ]
   },
-  "description": "Loop Web Application",
+  "description": "loop web",
   "main": "index.js",
-  "homepage": "/"
+  "homepage": "/",
+  "repository": "https://github.com/maildan/webpage.git",
+  "author": "umsehun <sakills914@gmail.com>"
 }
