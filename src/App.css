@@ -1,5 +1,181 @@
 /* Visual Studio Code 웹사이트 스타일 - 텍스트 스타일과 변수 */
 
+:root, .light-theme {
+  --code-visualstudio-com-segoe-UI-light-font-family: "Segoe UI", Helvetica;
+  --code-visualstudio-com-segoe-UI-light-font-size: 24px;
+  --code-visualstudio-com-segoe-UI-light-font-style: normal;
+  --code-visualstudio-com-segoe-UI-light-font-weight: 300;
+  --code-visualstudio-com-segoe-UI-light-letter-spacing: 0px;
+  --code-visualstudio-com-segoe-UI-light-line-height: 21px;
+  --code-visualstudio-com-segoe-UI-regular-font-family: "Segoe UI", Helvetica;
+  --code-visualstudio-com-segoe-UI-regular-font-size: 13.5625px;
+  --code-visualstudio-com-segoe-UI-regular-font-style: normal;
+  --code-visualstudio-com-segoe-UI-regular-font-weight: 400;
+  --code-visualstudio-com-segoe-UI-regular-letter-spacing: 0px;
+  --code-visualstudio-com-segoe-UI-regular-line-height: 22.399999618530273px;
+
+  /* 반응형 변수 */
+  --container-width: 100%;
+  --container-max-width: 1440px;
+  --container-padding-mobile: 16px;
+  --container-padding-tablet: 24px;
+  --container-padding-desktop: 32px;
+  --container-padding-large: 48px;
+
+  /* 라이트 모드 색상 변수 */
+  --body-background: #FFFFFF;
+  --nav-background: #F5F5F5;
+  --footer-background: #F5F5F5;
+  --card-background: #FFFFFF;
+  --section-background: #FAFAFA;
+  
+  /* 라이트 모드 텍스트 색상 */
+  --text-primary: #242424;
+  --text-secondary: #444444;
+  --text-muted: #666666;
+  
+  /* 강조 색상 */
+  --accent-blue: #0078D7;
+  --accent-blue-light: #2B88D8;
+  --accent-blue-dark: #005A9E;
+  
+  /* 테두리 색상 */
+  --border-color: #E0E0E0;
+  --divider-color: #EEEEEE;
+  
+  /* 버튼 색상 */
+  --button-primary: #0078D7;
+  --button-primary-hover: #0067C0;
+  --button-secondary: #3D3D42;
+  --button-secondary-hover: #2D2D32;
+  
+  /* 그림자 */
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 다크 테마 변수 */
+.dark-theme {
+  /* 다크 모드 색상 변수 */
+  --body-background: #1E1E1E;
+  --nav-background: #252526;
+  --footer-background: #252526;
+  --card-background: #2D2D30;
+  --section-background: #252526;
+  
+  /* 다크 모드 텍스트 색상 */
+  --text-primary: #E1E1E1;
+  --text-secondary: #BBBBBB;
+  --text-muted: #999999;
+  
+  /* 다크 모드 강조 색상 - 더 밝은 파란색으로 대비 증가 */
+  --accent-blue: #0098FF;
+  --accent-blue-light: #3AACFF;
+  --accent-blue-dark: #0078D7;
+  
+  /* 다크 모드 테두리 색상 */
+  --border-color: #3D3D42;
+  --divider-color: #3D3D42;
+  
+  /* 버튼 색상 */
+  --button-primary: #0098FF;
+  --button-primary-hover: #3AACFF;
+  --button-secondary: #3D3D42;
+  --button-secondary-hover: #4D4D52;
+  
+  /* 그림자 */
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 기본 스타일 적용 */
+body {
+  background-color: var(--body-background);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 테마 전환 아이콘 */
+.theme-toggle-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* 컨테이너 스타일 */
+.container {
+  width: var(--container-width);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    padding: 0 var(--container-padding-desktop);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 var(--container-padding-large);
+  }
+}
+
+/* 네비게이션 스타일 */
+.nav-menu {
+  background-color: var(--nav-background);
+  transition: background-color 0.3s ease;
+}
+
+/* 푸터 스타일 */
+.site-footer {
+  background-color: var(--footer-background);
+  transition: background-color 0.3s ease;
+}
+
+/* 섹션 스타일 */
+section {
+  background-color: var(--section-background);
+  transition: background-color 0.3s ease;
+}
+
+/* 카드 스타일 */
+.card {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 이미 존재하는 텍스트 스타일과 함께 사용 */
+.text, .text2, .text3, .text4 {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.text5 {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.text6, .text8, .text14, .text19, .text21, .text23 {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.text7, .text13, .text15, .text16 {
+  color: var(--accent-blue);
+  transition: color 0.3s ease;
+}
+
+/* Visual Studio Code 웹사이트 스타일 - 텍스트 스타일과 변수 */
+
 :root {
   --code-visualstudio-com-segoe-UI-light-font-family: "Segoe UI", Helvetica;
   --code-visualstudio-com-segoe-UI-light-font-size: 24px;

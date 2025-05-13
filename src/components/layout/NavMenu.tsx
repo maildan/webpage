@@ -12,13 +12,14 @@ interface NavMenuProps {
     href: string;
   }[];
   isScrolled?: boolean; // 외부에서 스크롤 상태를 받을 수 있도록 추가
+  activeItemId?: string; // 현재 활성화된 아이템의 ID
 }
 
 /**
  * 현대적인 VS Code, Apple, Microsoft 스타일의 슬림 내비게이션 컴포넌트
  * 반응형으로 모든 화면 크기에 최적화
  */
-const NavMenu: React.FC<NavMenuProps> = ({ logo, logoAlt, items, isScrolled: externalScrolled }) => {
+const NavMenu: React.FC<NavMenuProps> = ({ logo, logoAlt, items, isScrolled: externalScrolled, activeItemId }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [internalScrolled, setInternalScrolled] = useState(false);
   const { isMobile, isTablet } = useResponsive();
@@ -110,12 +111,11 @@ const NavMenu: React.FC<NavMenuProps> = ({ logo, logoAlt, items, isScrolled: ext
         </div>
         
         <div className={`vs-code-nav-items ${isOpen ? 'open' : ''}`}>
-          <ul className="vs-code-nav-list">
-            {items.map((item) => (
+          <ul className="vs-code-nav-list">            {items.map((item) => (
               <li key={item.id} className="vs-code-nav-item">
                 <a 
                   href={item.href} 
-                  className="vs-code-nav-link"
+                  className={`vs-code-nav-link ${activeItemId === item.id ? 'active' : ''}`}
                   onClick={handleNavLinkClick}
                 >
                   {item.label}
@@ -132,7 +132,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ logo, logoAlt, items, isScrolled: ext
               </a>
               <a href="#web-version" className="vs-code-action-button secondary" onClick={handleNavLinkClick}>
                 웹으로 사용
-              </a>
+              </a>ㅇ
             </div>
           )}
         </div>
