@@ -1,11 +1,15 @@
+// filepath: /Users/user/loop/loop_web/src/components/sections/HeroSection.tsx
 import React, { useState } from 'react';
 import { useResponsive } from '../../hooks/useResponsive';
+import { useTheme } from '../../context/ThemeContext';
+import { Section, Container, Row, Column } from '../layout/ResponsiveLayout';
 
 /**
  * VS Code 스타일의 히어로 섹션 컴포넌트
  * 반응형 디자인으로 모든 화면 크기에 최적화
  */
 const HeroSection = () => {
+  const { theme } = useTheme();
   const { isMobile, isTablet } = useResponsive();
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
 
@@ -19,16 +23,18 @@ const HeroSection = () => {
       }
       setIsVideoPlaying(!isVideoPlaying);
     }
-  };
-
+  };  
+  
   return (
-    <div className="hero-section full-width">
-      <div className="container">
-        <div className={`row ${isMobile ? 'reverseOnMobile' : ''}`}>
-          <div className="column md-6 animate-slide-up">
-            <h1 className="hero-title">개발을 더 쉽게, 더 빠르게</h1>
+    <Section className={`hero-section section ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`} id="hero">
+      <div className="hero-bg"></div>
+      <Container>
+        <Row className={`hero-row ${isMobile ? 'reverse' : ''}`}>
+          <Column md={6} className="hero-content animate-slide-up">
+            <h1 className="hero-title">모든 채팅을 한 곳에</h1>
             <p className="hero-description">
-              Loop는 개발자를 위한 강력한 도구입니다. 코드 에디터부터 통합 개발 환경까지 모든 기능을 갖춘 플랫폼으로 개발 효율성을 극대화하세요.
+              Loop는 Google Docs, Notion, Slack 등 다양한 플랫폼에서의 활동을 기록하고 분석하여
+              당신의 생산성을 높여줍니다. AI 기반의 맞춤형 추천과 통계로 더 나은 작업 환경을 제공합니다.
             </p>
             <div className="cta-buttons">
               <a href="#download" className="btn btn-primary">
@@ -38,8 +44,9 @@ const HeroSection = () => {
                 주요 기능 살펴보기
               </a>
             </div>
-          </div>
-          <div className="column md-6 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          </Column>
+          
+          <Column md={6} className="hero-video-column animate-slide-up delay-200">
             <div className="hero-video-container">
               <video
                 className="hero-video"
@@ -50,31 +57,22 @@ const HeroSection = () => {
                 poster="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/wz2fzcpj_expires_30_days.png"
               >
                 <source
-                  src="https://code.visualstudio.com/Videos/home-concept-video.mp4"
+                  src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/ncTSX1FLQH/oeawf5xr_expires_30_days.mp4"
                   type="video/mp4"
                 />
               </video>
-              <button 
-                className="pause-button" 
+              <button
+                className={`video-control ${isVideoPlaying ? 'pause' : 'play'}`}
                 onClick={toggleVideo}
-                aria-label={isVideoPlaying ? "비디오 정지" : "비디오 재생"}
+                aria-label={isVideoPlaying ? '동영상 일시정지' : '동영상 재생'}
               >
-                {isVideoPlaying ? "II" : "▶"}
+                {isVideoPlaying ? '∥' : '▶'}
               </button>
             </div>
-            {!isMobile && !isTablet && (
-              <div className="platform-links">
-                사용 가능한 플랫폼:
-                <a href="#windows" className="platform-link">Windows</a>
-                <a href="#mac" className="platform-link">Mac</a>
-                <a href="#linux" className="platform-link">Linux</a>
-                <a href="#web" className="platform-link">웹 브라우저</a>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
+          </Column>
+        </Row>
+      </Container>
+    </Section>
   );
 };
 

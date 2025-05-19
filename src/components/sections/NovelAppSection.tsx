@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Section, Container, Row, Column } from '../layout/ResponsiveLayout';
 import ResponsiveImage from '../common/ResponsiveImage';
 import { useInView } from 'react-intersection-observer';
+import { useTheme } from '../../context/ThemeContext';
 import '../animations.css'; // 애니메이션 CSS 불러오기
 
 /**
@@ -10,7 +11,7 @@ import '../animations.css'; // 애니메이션 CSS 불러오기
  * 애니메이션과 인터랙티브 요소 추가
  */
 const NovelAppSection: React.FC = () => {
-  // const { theme } = useTheme();
+  const { theme } = useTheme();
   const [activeFeature, setActiveFeature] = useState(0);
   
   // 스크롤 애니메이션을 위한 Intersection Observer
@@ -83,7 +84,7 @@ const NovelAppSection: React.FC = () => {
   };
 
   return (
-    <Section className="novel-app-section" id="novel-app">
+    <Section className={`novel-app-section section ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`} id="novel-app">
       <div ref={sectionRef} className="novel-app-container">
         <Container>
           <div className={`section-header text-center ${inView ? 'animate-fade-in' : ''}`}>

@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useResponsive } from '../../hooks/useResponsive';
+import { useTheme } from '../../context/ThemeContext';
+import './AlertBanner.css';
 
 interface AlertBannerProps {
   message?: string;
@@ -23,28 +25,26 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
   onClose,
   autoClose = false,
   autoCloseTime = 5000
-}) => {
+}) => {  
   const [isVisible, setIsVisible] = useState(true);
-  const { isMobile, isTablet } = useResponsive();
+  const { isMobile } = useResponsive();
+  const { theme } = useTheme();
   
-  // 자동 닫기 타이머 설정
-  useEffect(() => {
-    if (autoClose && isVisible) {
-      const timer = setTimeout(() => {
-        handleClose();
-      }, autoCloseTime);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [autoClose, autoCloseTime, isVisible]);
-  
-  // 배너 닫기 핸들러
-  const handleClose = () => {
+  // 배너 닫기 핸들러 - useCallback으로 메모이제이션
+  const handleClose = useCallback(() => {
     setIsVisible(false);
     if (onClose) {
       onClose();
     }
-  };
+  }, [onClose]);
+  
+  // 자동 닫기 타이머 설정
+  useEffect(() => {
+    if (autoClose && isVisible) {
+      const timer = setTimeout(handleClose, autoCloseTime);
+      return () => clearTimeout(timer);
+    }
+  }, [autoClose, autoCloseTime, isVisible, handleClose]);
   
   // 배너가 보이지 않으면 null 반환
   if (!isVisible) {
@@ -64,11 +64,9 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
       default:
         return 'alert-banner-info';
     }
-  };
-  
-  return (
-    <div className={`alert-banner ${getVariantStyles()}`}>
-      <div className="container">
+  };  return (
+    <div className={`alert-banner ${getVariantStyles()} ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
+      <div className="alert-container">
         <div className="alert-content">
           <span className="alert-message">
             {message}

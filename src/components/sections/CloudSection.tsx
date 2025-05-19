@@ -1,5 +1,6 @@
 import React from 'react';
 import { useResponsive } from '../../hooks/useResponsive';
+import { useTheme } from '../../context/ThemeContext';
 import { Section, Container, Row, Column } from '../layout/ResponsiveLayout';
 import ResponsiveImage from '../common/ResponsiveImage';
 
@@ -9,9 +10,10 @@ import ResponsiveImage from '../common/ResponsiveImage';
  */
 const CloudSection: React.FC = () => {
   const { isMobile, isTablet } = useResponsive();
+  const { theme } = useTheme();
   
   return (
-    <Section className="cloud-section" id="cloud-features">
+    <Section className={`cloud-section ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`} id="cloud-features">
       <Container>
         <div className="section-header text-center">
           <h2>클라우드로 손쉽게 저장</h2>

@@ -1,0 +1,201 @@
+/* 
+ * ResponsiveLayout 컴포넌트를 위한 CSS
+ * 푸터와 다른 섹션 간의 일관성을 위해 사용
+ */
+
+:root {
+  --grid-gap: 1.5rem; /* 그리드 간격 변수 추가 */
+}
+
+/* 기본 반응형 레이아웃 스타일 */
+.section {
+  width: 100%;
+  position: relative;
+  visibility: visible !important;
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Row 스타일 */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--grid-gap) / -2);
+  margin-right: calc(var(--grid-gap) / -2);
+  width: 100%;
+  box-sizing: border-box;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* justify-content 클래스 */
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+/* align-items 클래스 */
+.align-items-start {
+  align-items: flex-start;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+.align-items-baseline {
+  align-items: baseline;
+}
+
+/* 칼럼 스타일 */
+.col {
+  padding-left: calc(var(--grid-gap) / 2);
+  padding-right: calc(var(--grid-gap) / 2);
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* 모바일에서 역순 */
+@media (max-width: 767px) {
+  .reverseOnMobile {
+    flex-direction: column-reverse;
+  }
+}
+
+/* 반응형 그리드 클래스 */
+/* xs (extra small, 모바일) */
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, 
+.col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  padding-left: calc(var(--grid-gap) / 2);
+  padding-right: calc(var(--grid-gap) / 2);
+  box-sizing: border-box;
+}
+
+.col-xs-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+.col-xs-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+.col-xs-3 { flex: 0 0 25%; max-width: 25%; }
+.col-xs-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+.col-xs-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+.col-xs-6 { flex: 0 0 50%; max-width: 50%; }
+.col-xs-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+.col-xs-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+.col-xs-9 { flex: 0 0 75%; max-width: 75%; }
+.col-xs-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+.col-xs-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+.col-xs-12 { flex: 0 0 100%; max-width: 100%; }
+
+/* sm (small, 태블릿) */
+@media (min-width: 576px) {
+  .col-sm-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+  .col-sm-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+  .col-sm-3 { flex: 0 0 25%; max-width: 25%; }
+  .col-sm-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+  .col-sm-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+  .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+  .col-sm-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+  .col-sm-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+  .col-sm-9 { flex: 0 0 75%; max-width: 75%; }
+  .col-sm-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+  .col-sm-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+  .col-sm-12 { flex: 0 0 100%; max-width: 100%; }
+}
+
+/* md (medium, 소형 데스크톱) */
+@media (min-width: 768px) {
+  .col-md-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+  .col-md-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+  .col-md-3 { flex: 0 0 25%; max-width: 25%; }
+  .col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+  .col-md-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+  .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+  .col-md-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+  .col-md-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+  .col-md-9 { flex: 0 0 75%; max-width: 75%; }
+  .col-md-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+  .col-md-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+  .col-md-12 { flex: 0 0 100%; max-width: 100%; }
+}
+
+/* lg (large, 데스크톱) */
+@media (min-width: 992px) {
+  .col-lg-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+  .col-lg-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+  .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+  .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+  .col-lg-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+  .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+  .col-lg-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+  .col-lg-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+  .col-lg-9 { flex: 0 0 75%; max-width: 75%; }
+  .col-lg-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+  .col-lg-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+  .col-lg-12 { flex: 0 0 100%; max-width: 100%; }
+}
+
+/* xl (extra large, 대형 디스플레이) */
+@media (min-width: 1200px) {
+  .col-xl-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+  .col-xl-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+  .col-xl-3 { flex: 0 0 25%; max-width: 25%; }
+  .col-xl-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+  .col-xl-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+  .col-xl-6 { flex: 0 0 50%; max-width: 50%; }
+  .col-xl-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+  .col-xl-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+  .col-xl-9 { flex: 0 0 75%; max-width: 75%; }
+  .col-xl-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+  .col-xl-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+  .col-xl-12 { flex: 0 0 100%; max-width: 100%; }
+}
+
+/* DOM 트리가 보존되도록 모든 요소에 가시성 보장 */
+.section, .container, .row, .col {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* 푸터와 연결되는 섹션 스타일 */
+.section + .vs-code-footer {
+  margin-top: 0;
+  padding-top: var(--spacing-3xl);
+}

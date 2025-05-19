@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useResponsive } from '../../hooks/useResponsive';
+import { useTheme } from '../../context/ThemeContext'; 
 import './NavMenu.css';
+import './theme-toggle.css';
 
 // NavMenu 컴포넌트의 Props 타입 정의
 interface NavMenuProps {
@@ -23,6 +25,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ logo, logoAlt, items, isScrolled: ext
   const [isOpen, setIsOpen] = useState(false);
   const [internalScrolled, setInternalScrolled] = useState(false);
   const { isMobile, isTablet } = useResponsive();
+  const { theme, toggleTheme } = useTheme();
   
   // 외부에서 스크롤 상태를 받거나 내부적으로 계산
   const isScrolled = externalScrolled !== undefined ? externalScrolled : internalScrolled;
@@ -81,9 +84,8 @@ const NavMenu: React.FC<NavMenuProps> = ({ logo, logoAlt, items, isScrolled: ext
       document.body.style.overflow = '';
     }
   };
-
   return (
-    <nav className={`vs-code-nav ${isScrolled ? 'scrolled' : ''}`} aria-label="메인 내비게이션">
+    <nav className={`vs-code-nav ${isScrolled ? 'scrolled' : ''} ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`} aria-label="메인 내비게이션">
       <div className="nav-container">
         <div className="vs-code-logo">
           <a href="/" className="logo-link" aria-label={logoAlt}>
@@ -110,7 +112,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ logo, logoAlt, items, isScrolled: ext
           )}
         </div>
         
-        <div className={`vs-code-nav-items ${isOpen ? 'open' : ''}`}>
+        <div className={`vs-code-nav-items ${isOpen ? 'open' : ''} ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
           <ul className="vs-code-nav-list">            {items.map((item) => (
               <li key={item.id} className="vs-code-nav-item">
                 <a 
@@ -123,23 +125,35 @@ const NavMenu: React.FC<NavMenuProps> = ({ logo, logoAlt, items, isScrolled: ext
               </li>
             ))}
           </ul>
-          
-          {/* 모바일 화면에서만 vs-code-nav-items 안에 액션 버튼 표시 */}
+            {/* 모바일 화면에서만 vs-code-nav-items 안에 액션 버튼 표시 */}
           {(isMobile || isTablet) && (
             <div className="vs-code-actions mobile">
+              <button 
+                onClick={toggleTheme} 
+                className={`theme-toggle-button mobile ${theme === 'dark' ? 'dark-toggle' : 'light-toggle'}`}
+                aria-label={theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'}
+              >
+                {theme === 'dark' ? '☀️' : '🌙'}
+              </button>
               <a href="#download" className="vs-code-action-button primary" onClick={handleNavLinkClick}>
                 다운로드
               </a>
               <a href="#web-version" className="vs-code-action-button secondary" onClick={handleNavLinkClick}>
                 웹으로 사용
-              </a>ㅇ
+              </a>
             </div>
           )}
         </div>
-        
-        {/* 태블릿/데스크톱에서만 상단에 액션 버튼 표시 */}
+          {/* 태블릿/데스크톱에서만 상단에 액션 버튼 표시 */}
         {!isMobile && !isTablet && (
-          <div className="vs-code-actions">
+          <div className={`vs-code-actions ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
+            <button 
+              onClick={toggleTheme} 
+              className={`theme-toggle-button ${theme === 'dark' ? 'dark-toggle' : 'light-toggle'}`}
+              aria-label={theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'}
+            >
+              {theme === 'dark' ? '☀️' : '🌙'}
+            </button>
             <a href="#download" className="vs-code-action-button primary">다운로드</a>
             <a href="#web-version" className="vs-code-action-button secondary">웹으로 사용</a>
           </div>
@@ -148,7 +162,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ logo, logoAlt, items, isScrolled: ext
       
       {/* 모바일 메뉴 오픈 시 오버레이 */}
       {isOpen && (isMobile || isTablet) && (
-        <div className="menu-overlay" onClick={toggleMenu}></div>
+        <div className={`menu-overlay ${theme === 'dark' ? 'dark-overlay' : 'light-overlay'}`} onClick={toggleMenu}></div>
       )}
     </nav>
   );

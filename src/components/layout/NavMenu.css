@@ -423,6 +423,34 @@
   .nav-container {
     padding: 0 var(--spacing-xl);
   }
+  
+  /* PC 화면 최적화 (1920x1080 이상) */
+  .vs-code-nav {
+    height: 52px;
+  }
+  
+  .vs-code-nav.scrolled {
+    height: 48px;
+  }
+  
+  .logo-image {
+    height: 26px;
+    width: auto;
+  }
+  
+  .logo-text {
+    font-size: 16px;
+  }
+  
+  .vs-code-nav-link {
+    font-size: 14px;
+    padding: 0 18px;
+  }
+  
+  .vs-code-action-button {
+    padding: 6px 16px;
+    font-size: 14px;
+  }
 }
 
 /* 라이트 모드 스타일 */

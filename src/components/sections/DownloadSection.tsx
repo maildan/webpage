@@ -1,23 +1,54 @@
 import React from 'react';
 import { Section, Container, Row, Column } from '../layout/ResponsiveLayout';
 import ResponsiveImage from '../common/ResponsiveImage';
+import { useTheme } from '../../context/ThemeContext';
+import { useResponsive } from '../../hooks/useResponsive';
+import { useElementAnimation } from '../../hooks/useElementAnimation';
+import './DownloadSection.css';
 
 /**
  * 다운로드 페이지 섹션
  * 앱 다운로드 링크와 정보 제공
  */
 const DownloadSection: React.FC = () => {
+  const { theme } = useTheme();
+  const { isMobile } = useResponsive();
+  
+  // 다운로드 섹션 요소 애니메이션 적용
+  useElementAnimation('.download-section', 'section-visible', { 
+    threshold: 0.1, 
+    rootMargin: '0px 0px -50px 0px',
+    triggerOnce: true,
+    forceVisible: true 
+  });
+  
+  // 설치 도움말 요소가 사라지는 문제 해결
+  useElementAnimation('.installation-help', 'visible', {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px',
+    triggerOnce: true,
+    forceVisible: true
+  });
+  
+  // 시스템 요구 사항 행 요소가 사라지는 문제 해결
+  useElementAnimation('.requirements-row', 'visible', {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px',
+    triggerOnce: true,
+    forceVisible: true
+  });
+  
   return (
-    <Section className="download-section" id="download">
+    <Section className={`download-section section ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`} id="download">
       <Container>
         <div className="section-header text-center">
-          <h2>Loop 앱 다운로드</h2>
-          <p>당신에게 필요한 앱을 선택하세요</p>
+          <h2 className="section-title animate-fade-in">Loop 앱 다운로드</h2>
+          <p className="section-subtitle animate-fade-in delay-100">당신에게 필요한 앱을 선택하세요</p>
         </div>
         
         <div className="download-options">
-          <Row>
-            <Column md={6}>
+          <Row className="download-row">
+            <Column md={6} sm={12} xs={12} className={`download-card-column ${isMobile ? 'animate-fade-in' : 'animate-slide-up delay-200'}`}>
               <div className="download-card">
                 <div className="download-card-header">
                   <h3>Novel</h3>
@@ -40,29 +71,37 @@ const DownloadSection: React.FC = () => {
                   </ul>
                   
                   <div className="platform-downloads">
-                    <div className="download-platform">
-                      <h4>Windows</h4>
-                      <a href="#download-novel-windows" className="btn btn-primary btn-download">
-                        다운로드
-                      </a>
-                      <span className="version">v1.2.5</span>
-                    </div>
-                    
-                    <div className="download-platform">
-                      <h4>macOS</h4>
-                      <a href="#download-novel-mac" className="btn btn-primary btn-download">
-                        다운로드
-                      </a>
-                      <span className="version">v1.2.5</span>
-                    </div>
-                    
-                    <div className="download-platform">
-                      <h4>Linux</h4>
-                      <a href="#download-novel-linux" className="btn btn-primary btn-download">
-                        다운로드
-                      </a>
-                      <span className="version">v1.2.5</span>
-                    </div>
+                    <Row className="platform-row">
+                      <Column md={4} sm={12} xs={12} className="download-platform-column">
+                        <div className="download-platform">
+                          <h4>Windows</h4>
+                          <a href="#download-novel-windows" className="btn btn-primary btn-download">
+                            다운로드
+                          </a>
+                          <span className="version">v1.2.5</span>
+                        </div>
+                      </Column>
+                      
+                      <Column md={4} sm={12} xs={12} className="download-platform-column">
+                        <div className="download-platform">
+                          <h4>macOS</h4>
+                          <a href="#download-novel-mac" className="btn btn-primary btn-download">
+                            다운로드
+                          </a>
+                          <span className="version">v1.2.5</span>
+                        </div>
+                      </Column>
+                      
+                      <Column md={4} sm={12} xs={12} className="download-platform-column">
+                        <div className="download-platform">
+                          <h4>Linux</h4>
+                          <a href="#download-novel-linux" className="btn btn-primary btn-download">
+                            다운로드
+                          </a>
+                          <span className="version">v1.2.5</span>
+                        </div>
+                      </Column>
+                    </Row>
                   </div>
                 </div>
                 
@@ -73,7 +112,7 @@ const DownloadSection: React.FC = () => {
               </div>
             </Column>
             
-            <Column md={6}>
+            <Column md={6} sm={12} xs={12} className={`download-card-column ${isMobile ? 'animate-fade-in delay-100' : 'animate-slide-up delay-300'}`}>
               <div className="download-card">
                 <div className="download-card-header">
                   <h3>Pro</h3>
@@ -96,29 +135,37 @@ const DownloadSection: React.FC = () => {
                   </ul>
                   
                   <div className="platform-downloads">
-                    <div className="download-platform">
-                      <h4>Windows</h4>
-                      <a href="#download-pro-windows" className="btn btn-primary btn-download">
-                        다운로드
-                      </a>
-                      <span className="version">v1.3.2</span>
-                    </div>
-                    
-                    <div className="download-platform">
-                      <h4>macOS</h4>
-                      <a href="#download-pro-mac" className="btn btn-primary btn-download">
-                        다운로드
-                      </a>
-                      <span className="version">v1.3.2</span>
-                    </div>
-                    
-                    <div className="download-platform">
-                      <h4>Linux</h4>
-                      <a href="#download-pro-linux" className="btn btn-primary btn-download">
-                        다운로드
-                      </a>
-                      <span className="version">v1.3.2</span>
-                    </div>
+                    <Row className="platform-row">
+                      <Column md={4} sm={12} xs={12} className="download-platform-column">
+                        <div className="download-platform">
+                          <h4>Windows</h4>
+                          <a href="#download-pro-windows" className="btn btn-primary btn-download">
+                            다운로드
+                          </a>
+                          <span className="version">v1.3.2</span>
+                        </div>
+                      </Column>
+                      
+                      <Column md={4} sm={12} xs={12} className="download-platform-column">
+                        <div className="download-platform">
+                          <h4>macOS</h4>
+                          <a href="#download-pro-mac" className="btn btn-primary btn-download">
+                            다운로드
+                          </a>
+                          <span className="version">v1.3.2</span>
+                        </div>
+                      </Column>
+                      
+                      <Column md={4} sm={12} xs={12} className="download-platform-column">
+                        <div className="download-platform">
+                          <h4>Linux</h4>
+                          <a href="#download-pro-linux" className="btn btn-primary btn-download">
+                            다운로드
+                          </a>
+                          <span className="version">v1.3.2</span>
+                        </div>
+                      </Column>
+                    </Row>
                   </div>
                 </div>
                 
@@ -132,10 +179,10 @@ const DownloadSection: React.FC = () => {
         </div>
         
         <div className="system-requirements mt-lg">
-          <h3>시스템 요구 사항</h3>
+          <h3 className="requirements-title animate-fade-in">시스템 요구 사항</h3>
           
-          <Row>
-            <Column md={4}>
+          <Row className="requirements-row">
+            <Column md={4} sm={12} xs={12} className={`requirements-column ${isMobile ? 'animate-fade-in' : 'animate-fade-in delay-300'}`}>
               <div className="requirements-platform">
                 <h4>Windows</h4>
                 <ul>
@@ -147,7 +194,7 @@ const DownloadSection: React.FC = () => {
               </div>
             </Column>
             
-            <Column md={4}>
+            <Column md={4} sm={12} xs={12} className={`requirements-column ${isMobile ? 'animate-fade-in delay-100' : 'animate-fade-in delay-400'}`}>
               <div className="requirements-platform">
                 <h4>macOS</h4>
                 <ul>
@@ -159,7 +206,7 @@ const DownloadSection: React.FC = () => {
               </div>
             </Column>
             
-            <Column md={4}>
+            <Column md={4} sm={12} xs={12} className={`requirements-column ${isMobile ? 'animate-fade-in delay-200' : 'animate-fade-in delay-500'}`}>
               <div className="requirements-platform">
                 <h4>Linux</h4>
                 <ul>
@@ -174,9 +221,9 @@ const DownloadSection: React.FC = () => {
         </div>
         
         <div className="installation-help mt-lg text-center">
-          <h3>설치에 도움이 필요하세요?</h3>
-          <p>Loop 앱 설치 및 설정에 관한 자세한 안내는 우리의 문서 센터를 참조하세요.</p>
-          <a href="#installation-guide" className="btn btn-outline">설치 가이드 보기</a>
+          <h3 className="installation-title animate-fade-in">설치에 도움이 필요하세요?</h3>
+          <p className="installation-desc animate-fade-in delay-100">Loop 앱 설치 및 설정에 관한 자세한 안내는 우리의 문서 센터를 참조하세요.</p>
+          <a href="#installation-guide" className="btn btn-outline animate-fade-in delay-200">설치 가이드 보기</a>
         </div>
       </Container>
     </Section>

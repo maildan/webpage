@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import { Section, Container, Row, Column } from '../components/layout/ResponsiveLayout';
+import { Section, Container } from '../components/layout/ResponsiveLayout';
 import { useTheme } from '../context/ThemeContext';
 
 // 임시 타입 정의

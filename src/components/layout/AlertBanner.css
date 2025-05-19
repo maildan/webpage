@@ -1,0 +1,150 @@
+/* VS Code 스타일 알림 배너 */
+.alert-banner {
+  width: 100%;
+  position: fixed;
+  top: 52px; /* NavMenu와 동일한 높이 */
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 스크롤 시에도 고정 */
+.alert-banner.sticky {
+  position: fixed;
+  top: 0;
+}
+
+/* 배너 색상 스타일 */
+.alert-banner-info {
+  background-color: var(--accent-blue);
+  color: #ffffff;
+}
+
+.alert-banner-warning {
+  background-color: #f39c12;
+  color: #ffffff;
+}
+
+.alert-banner-success {
+  background-color: #2ecc71;
+  color: #ffffff;
+}
+
+.alert-banner-error {
+  background-color: #e74c3c;
+  color: #ffffff;
+}
+
+/* 다크 테마 색상 최적화 */
+.alert-banner.dark-theme.alert-banner-info {
+  background-color: var(--accent-blue-dark);
+}
+
+.alert-banner.dark-theme.alert-banner-warning {
+  background-color: #d35400;
+}
+
+.alert-banner.dark-theme.alert-banner-success {
+  background-color: #27ae60;
+}
+
+.alert-banner.dark-theme.alert-banner-error {
+  background-color: #c0392b;
+}
+
+/* 컨테이너 스타일 */
+.alert-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .alert-container {
+    padding: 0 var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 992px) {
+  .alert-container {
+    padding: 0 var(--container-padding-desktop);
+  }
+}
+
+/* 알림 콘텐츠 스타일 */
+.alert-content {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 메시지 스타일 */
+.alert-message {
+  flex: 1;
+  margin-right: 16px;
+}
+
+/* 구분자 스타일 */
+.alert-separator {
+  margin: 0 12px;
+  opacity: 0.7;
+}
+
+/* 링크 스타일 */
+.alert-link {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 16px;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.alert-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* 닫기 버튼 스타일 */
+.alert-close {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.alert-close:hover {
+  opacity: 1;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 767px) {
+  .alert-content {
+    flex-wrap: wrap;
+    padding: 8px 0;
+  }
+  
+  .alert-message {
+    width: 100%;
+    margin-bottom: 4px;
+    margin-right: 0;
+  }
+  
+  .alert-link {
+    font-size: 13px;
+  }
+}
+
+/* NavMenu에 맞춰서 스크롤 시 조정 */
+.vs-code-nav.scrolled + .alert-banner {
+  top: 42px; /* 스크롤 시 NavMenu 높이 */
+}

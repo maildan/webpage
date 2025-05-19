@@ -26,12 +26,11 @@
   --spacing-xs: 0.25rem;  /* 4px */
   --spacing-sm: 0.5rem;   /* 8px */
   --spacing-md: 1rem;     /* 16px */
-  --spacing-lg: 1.5rem;   /* 24px */
-  --spacing-xl: 2rem;     /* 32px */
+  --spacing-lg: 1.5rem;   /* 24px */  --spacing-xl: 2rem;     /* 32px */
   --spacing-xxl: 3rem;    /* 48px */
   --spacing-3xl: 4rem;    /* 64px */
-  --spacing-4xl: 6rem;    /* 96px;
-
+  --spacing-4xl: 6rem;    /* 96px */
+  --spacing-5xl: 8rem;    /* 128px */
   /* 컨테이너 변수 */
   --container-padding: var(--spacing-md);
   --container-max-width: 1440px;
@@ -132,6 +131,80 @@ body {
   padding: var(--section-padding) 0;
 }
 
+/* VS Code 스타일 사이트의 섹션 공통 반응형 스타일 */
+.section,
+.download-section, 
+.feature-section, 
+.cloud-section, 
+.cloud-page-section, 
+.hero-section, 
+.novel-app-section, 
+.pro-app-section, 
+.feature-grid-section, 
+.vs-code-footer {
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 모바일 환경에서 섹션 패딩 통일 */
+@media (max-width: 767px) {
+  .section,
+  .download-section, 
+  .feature-section, 
+  .cloud-section, 
+  .cloud-page-section, 
+  .hero-section, 
+  .novel-app-section, 
+  .pro-app-section, 
+  .feature-grid-section, 
+  .vs-code-footer {
+    padding: var(--spacing-xl) var(--container-padding-mobile);
+  }
+  
+  h1, .h1 {
+    font-size: 2rem;
+  }
+  
+  h2, .h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* 태블릿 환경에서 섹션 패딩 통일 */
+@media (min-width: 768px) and (max-width: 991px) {
+  .section,
+  .download-section, 
+  .feature-section, 
+  .cloud-section, 
+  .cloud-page-section, 
+  .hero-section, 
+  .novel-app-section, 
+  .pro-app-section, 
+  .feature-grid-section, 
+  .vs-code-footer {
+    padding: var(--spacing-xxl) var(--container-padding-tablet);
+  }
+}
+
+/* 데스크톱 환경에서 섹션 패딩 통일 */
+@media (min-width: 992px) {
+  .section,
+  .download-section, 
+  .feature-section, 
+  .cloud-section, 
+  .cloud-page-section, 
+  .hero-section, 
+  .novel-app-section, 
+  .pro-app-section, 
+  .feature-grid-section, 
+  .vs-code-footer {
+    padding: var(--spacing-3xl) var(--container-padding-desktop);
+  }
+}
+
 /* 그리드 시스템 - 고정된 열 수 대신 유연한 레이아웃 */
 .grid {
   display: grid;
@@ -171,7 +244,9 @@ body {
 /* 데스크톱 브레이크포인트 */
 @media (min-width: 992px) {
   :root {
-    --section-padding: var(--spacing-xxl);
+    --container-padding: var(--spacing-xl);
+    --section-padding: calc(var(--spacing-xl) * 1.5);
+    --grid-gap: 2rem;
   }
   
   .grid {
@@ -191,12 +266,55 @@ body {
   .lg-col-10 { grid-column: span 10; }
   .lg-col-11 { grid-column: span 11; }
   .lg-col-12 { grid-column: span 12; }
+    /* PC에서의 컨테이너 패딩 */
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-/* 대형 화면 브레이크포인트 */
+/* 대형 화면 브레이크포인트 - PC 환경 최적화 (1920×1080 이상) */
 @media (min-width: 1200px) {
   :root {
     --container-padding: var(--spacing-xl);
+    --section-padding: var(--spacing-xxl);
+    --grid-gap: 2.5rem;
+  }
+  
+  .container {
+    max-width: 1440px;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+  
+  .section {
+    padding: var(--section-padding) 0;
+  }
+  
+  /* 대형 화면에서 그리드 아이템 크기 재정의 */
+  .xl-col-1 { grid-column: span 1; }
+  .xl-col-2 { grid-column: span 2; }
+  .xl-col-3 { grid-column: span 3; }
+  .xl-col-4 { grid-column: span 4; }
+  .xl-col-5 { grid-column: span 5; }
+  .xl-col-6 { grid-column: span 6; }
+  .xl-col-7 { grid-column: span 7; }
+  .xl-col-8 { grid-column: span 8; }
+  .xl-col-9 { grid-column: span 9; }
+  .xl-col-10 { grid-column: span 10; }
+  .xl-col-11 { grid-column: span 11; }
+  .xl-col-12 { grid-column: span 12; }
+}
+
+/* 초대형 화면 (1920×1080 이상) 브레이크포인트 */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1800px;
+  }
+  
+  :root {
+    --container-padding: calc(var(--spacing-xl) * 1.5);
   }
 }
 

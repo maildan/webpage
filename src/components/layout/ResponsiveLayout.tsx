@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import './ResponsiveLayout.css'; // 반응형 레이아웃 CSS 추가
 
 interface SectionProps {
   children: ReactNode;
@@ -34,7 +35,15 @@ interface ColumnProps {
  */
 export const Section: React.FC<SectionProps> = ({ children, className = '', id }) => {
   return (
-    <section className={className} id={id}>
+    <section 
+      className={`section full-width ${className}`} 
+      id={id}
+      style={{ 
+        visibility: 'visible',
+        display: 'block',
+        opacity: 1
+      }}
+    >
       {children}
     </section>
   );
@@ -80,9 +89,17 @@ export const Row: React.FC<RowProps> = ({
         : alignItems === 'stretch'
           ? 'align-items-stretch'
           : 'align-items-baseline';
-
   return (
-    <div className={`row ${justifyClass} ${alignClass} ${reverseOnMobile ? 'reverseOnMobile' : ''} ${className}`}>
+    <div 
+      className={`row ${justifyClass} ${alignClass} ${reverseOnMobile ? 'reverseOnMobile' : ''} ${className}`}
+      style={{ 
+        visibility: 'visible', 
+        display: 'flex', 
+        opacity: 1,
+        flexWrap: 'wrap',
+        width: '100%'
+      }}
+    >
       {children}
     </div>
   );
@@ -100,22 +117,32 @@ export const Column: React.FC<ColumnProps> = ({
   lg, 
   xl
 }) => {
+  // PC 화면에 최적화된 클래스 설정
   const xsClass = xs ? `col-${xs}` : '';
   const smClass = sm ? `sm-${sm}` : '';
   const mdClass = md ? `md-${md}` : '';
   const lgClass = lg ? `lg-${lg}` : '';
   const xlClass = xl ? `xl-${xl}` : '';
-
-  return (
-    <div className={`column ${xsClass} ${smClass} ${mdClass} ${lgClass} ${xlClass} ${className}`}>
+    return (
+    <div 
+      className={`column ${xsClass} ${smClass} ${mdClass} ${lgClass} ${xlClass} ${className}`}
+      style={{ 
+        visibility: 'visible', 
+        display: 'block', 
+        opacity: 1
+      }}
+    >
       {children}
     </div>
   );
 };
 
-export default {
+// 모듈 내보내기
+const ResponsiveLayout = {
   Section,
   Container,
   Row,
   Column
 };
+
+export default ResponsiveLayout;

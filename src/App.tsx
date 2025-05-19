@@ -11,6 +11,7 @@ import ResponsiveImage from './components/common/ResponsiveImage';
 import NovelAppSection from './components/sections/NovelAppSection';
 import ProAppSection from './components/sections/ProAppSection';
 import CloudPageSection from './components/sections/CloudPageSection';
+import FeatureSection from './components/sections/FeatureSection'; // FeatureSection 추가
 import DownloadSection from './components/sections/DownloadSection';
 import Footer from './components/layout/Footer';
 import logo from './logo.svg';
@@ -179,6 +180,9 @@ function ThemedApp() {
             </Row>
           </Container>
         </Section>
+        
+        {/* 특징 섹션을 푸터 바로 앞에 배치하여 통합 개선 */}
+        <FeatureSection />
         
         {/* 푸터 - 테마 토글 기능 전달 */}
         <Footer isDarkMode={theme === 'dark'} onThemeToggle={toggleTheme} />

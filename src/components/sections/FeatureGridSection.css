@@ -1,0 +1,89 @@
+/* 
+ * Feature Grid Section 수정 스타일
+ * VS Code 스타일에 맞춘 반응형 그리드 섹션
+ * 테마 변경 시 일관된 가시성 유지
+ */
+
+/* Feature Grid 가시성 문제 해결을 위한 스타일 */
+.feature-grid-section {
+  position: relative;
+  z-index: 1;
+  visibility: visible !important;
+  display: block !important;
+  opacity: 1 !important;
+  transition: background-color 0.3s ease !important;
+}
+
+/* 테마 변경 시에도 그리드 요소 가시성 유지 */
+.feature-grid-section.light-theme,
+.feature-grid-section.dark-theme {
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* 그리드 아이템의 가시성 보장 */
+.feature-grid-item {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: transform 0.3s ease, opacity 0.3s ease !important;
+}
+
+/* 그리드 카드 요소의 가시성 보장 */
+.feature-grid-card {
+  display: flex !important;
+  flex-direction: column !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+/* 그리드 행의 가시성 보장 */
+.feature-grid-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 그리드 이미지 및 텍스트 요소 가시성 보장 */
+.feature-grid-image,
+.feature-grid-title,
+.feature-grid-description {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 반응형 조정 - 모바일 환경 */
+@media (max-width: 767px) {
+  .feature-grid-item {
+    margin-bottom: var(--spacing-md);
+    width: 100%;
+  }
+  
+  .feature-grid-card {
+    padding: var(--spacing-md);
+  }
+}
+
+/* 반응형 조정 - 태블릿 환경 */
+@media (min-width: 768px) and (max-width: 991px) {
+  .feature-grid-row {
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+/* 반응형 조정 - 데스크톱 환경 */
+@media (min-width: 992px) {
+  .feature-grid-row {
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .feature-grid-card {
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-grid-card:hover {
+    transform: translateY(-5px);
+  }
+}

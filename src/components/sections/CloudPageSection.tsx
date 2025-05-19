@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Container, Row, Column } from '../layout/ResponsiveLayout';
-import { useTheme, ThemeProvider } from '../../context/ThemeContext';
+import { useTheme } from '../../context/ThemeContext';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
 
 // 타입 정의
@@ -487,10 +487,12 @@ const CloudPageSectionContent: React.FC = () => {
 
 // 테마 제공자로 감싼 클라우드 페이지 섹션
 const CloudPageSection: React.FC = () => {
+  const { theme } = useTheme();
+  
   return (
-    <ThemeProvider>
+    <Section className={`cloud-page-section section ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`} id="cloud-data">
       <CloudPageSectionContent />
-    </ThemeProvider>
+    </Section>
   );
 };
 
