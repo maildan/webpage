@@ -132,9 +132,18 @@ const Footer: React.FC<FooterProps> = ({
         { label: "트레이드마크", href: "#trademark" }
       ]
     }  ];
-  
-  return (
-    <footer className={`vs-code-footer ${theme === 'dark' ? 'dark-theme' : 'light-theme'} ${shouldUseCompactLayout ? 'compact-layout' : pcClassModifier}`}>
+    return (
+    <footer 
+      className={`vs-code-footer ${theme === 'dark' ? 'dark-theme' : 'light-theme'} ${shouldUseCompactLayout ? 'compact-layout' : pcClassModifier}`}
+      style={{
+        visibility: 'visible',
+        display: 'block',
+        opacity: 1,
+        width: '100%',
+        position: 'relative',
+        zIndex: 1
+      }}
+    >
       <div className="footer-container">
         <div className="footer-top">
           <div className="footer-brand">

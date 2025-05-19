@@ -1,0 +1,452 @@
+/* 
+ * Download Section 스타일
+ * 테마 변경 시 요소가 사라지는 문제 해결을 위한 스타일 추가
+ */
+
+/* 다운로드 섹션 기본 스타일 */
+.download-section {
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--background);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* 다크 테마 지원 */
+.download-section.dark-theme {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+}
+
+/* 섹션 제목 및 설명 */
+.section-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  visibility: visible !important;
+  display: block !important;
+}
+
+.dark-theme .section-title {
+  color: var(--text-light);
+}
+
+.section-subtitle {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-secondary);
+  visibility: visible !important;
+  display: block !important;
+}
+
+.dark-theme .section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 다운로드 옵션 영역 */
+.download-options {
+  margin-bottom: var(--spacing-xxl);
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* 다운로드 카드 스타일 */
+.download-card {
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  height: 100%;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  visibility: visible !important;
+  display: flex !important;
+  flex-direction: column;
+}
+
+.download-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.dark-theme .download-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 다운로드 카드 헤더 */
+.download-card-header {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.download-card-header h3 {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  color: var(--primary);
+}
+
+.dark-theme .download-card-header h3 {
+  color: var(--primary-light);
+}
+
+.subtitle {
+  margin-top: var(--spacing-xs);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.dark-theme .subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 다운로드 카드 본문 */
+.download-card-body {
+  flex: 1;
+  margin-bottom: var(--spacing-md);
+}
+
+.app-icon {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.app-icon img {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+}
+
+/* 기능 목록 */
+.feature-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+.feature-list li {
+  padding: var(--spacing-xs) 0;
+  position: relative;
+  padding-left: var(--spacing-lg);
+  color: var(--text-secondary);
+  visibility: visible !important;
+  display: block !important;
+}
+
+.feature-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.dark-theme .feature-list li {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-theme .feature-list li::before {
+  color: var(--primary-light);
+}
+
+/* 플랫폼 다운로드 */
+.platform-downloads {
+  border-top: 1px solid var(--border);
+  padding-top: var(--spacing-md);
+}
+
+.platform-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  visibility: visible !important;
+}
+
+.download-platform-column {
+  margin-bottom: var(--spacing-md);
+  visibility: visible !important;
+  display: block !important;
+}
+
+.download-platform {
+  text-align: center;
+  visibility: visible !important;
+  display: block !important;
+}
+
+.download-platform h4 {
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-size-md);
+  color: var(--text-primary);
+}
+
+.dark-theme .download-platform h4 {
+  color: var(--text-light);
+}
+
+.btn-download {
+  display: inline-block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.version {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.dark-theme .version {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* 다운로드 카드 푸터 */
+.download-card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border);
+  font-size: var(--font-size-xs);
+}
+
+.link-release-notes,
+.link-older-versions {
+  color: var(--primary);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.link-release-notes:hover,
+.link-older-versions:hover {
+  opacity: 0.8;
+}
+
+.dark-theme .link-release-notes,
+.dark-theme .link-older-versions {
+  color: var(--primary-light);
+}
+
+/* 시스템 요구사항 영역 */
+.system-requirements {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-xxl);
+  visibility: visible !important;
+  display: block !important;
+}
+
+.requirements-title {
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  font-size: var(--font-size-xl);
+  color: var(--text-primary);
+  visibility: visible !important;
+  display: block !important;
+}
+
+.dark-theme .requirements-title {
+  color: var(--text-light);
+}
+
+.requirements-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  visibility: visible !important;
+  display: flex !important;
+}
+
+.requirements-column {
+  margin-bottom: var(--spacing-md);
+  visibility: visible !important;
+  display: block !important;
+}
+
+.requirements-platform {
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  height: 100%;
+  visibility: visible !important;
+  display: block !important;
+}
+
+.dark-theme .requirements-platform {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.requirements-platform h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary);
+  font-size: var(--font-size-md);
+}
+
+.dark-theme .requirements-platform h4 {
+  color: var(--primary-light);
+}
+
+.requirements-platform ul {
+  padding-left: var(--spacing-lg);
+  margin: 0;
+}
+
+.requirements-platform li {
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-secondary);
+  visibility: visible !important;
+  display: block !important;
+}
+
+.dark-theme .requirements-platform li {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 설치 도움말 영역 */
+.installation-help {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-md);
+  background-color: rgba(var(--primary-rgb), 0.05);
+  border-radius: var(--radius-lg);
+  visibility: visible !important;
+  display: block !important;
+}
+
+.dark-theme .installation-help {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.installation-title {
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-lg);
+  color: var(--text-primary);
+  visibility: visible !important;
+  display: block !important;
+}
+
+.dark-theme .installation-title {
+  color: var(--text-light);
+}
+
+.installation-desc {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  visibility: visible !important;
+  display: block !important;
+}
+
+.dark-theme .installation-desc {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 버튼 스타일 */
+.btn {
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  padding: var(--spacing-xs) var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.dark-theme .btn-outline {
+  color: var(--primary-light);
+  border-color: var(--primary-light);
+}
+
+.dark-theme .btn-outline:hover {
+  background-color: var(--primary-light);
+  color: var(--background-dark);
+}
+
+/* 유틸리티 클래스 */
+.mt-lg {
+  margin-top: var(--spacing-lg) !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+/* 요소 가시성 클래스 */
+.visible {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+.section-visible {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 767px) {
+  .download-section {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .section-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .download-card-column {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .requirements-row {
+    flex-direction: column;
+  }
+  
+  .installation-help {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+
+/* 테마 전환 시 DOM 트리 유지 보장 */
+.download-section *,
+.download-section.dark-theme *,
+.download-section.light-theme * {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
